@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/registro.css">
+    <title>registro</title>
+</head>
+<body>
+
+  <div class="header">
+    <a href="https://engranedigital.com/">
+        <img src="https://engranedigital.com/wp-content/uploads/2018/09/Engrane_digital_logo_2.png" alt="Engranito" width="350px" height="100px">
+    </a>
+    <ul class="menu">
+        <li><a href="https://engranedigital.com/" class="cabe">Home</a></li>
+        <li><a href="https://engranedigital.com/guias-engrane/index.html" class="cabe">Guias</a></li>
+        <li><a href="https://engranedigital.com/nosotros/index.html" class="cabe">Nosotros</a></li>
+        <li><a href="https://engranedigital.com/contacto/index.html" class="cabe">Contacto</a></li>
+        <li>
+            <a href="#" class="cabe">Más</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Opción 1</a></li>
+                <li><a href="#">Opción 2</a></li>
+                <li><a href="#">Opción 3</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<h1>BIenvenido al registro</h1>
+<div class="content">
+    <form>
+        <input type="button" value="Registrese" id="usuario" >
+        <input type="text" placeholder="Nombre" id="nombre">
+        <input type="password" placeholder="Contraseña" id="contraseña">
+        <input type="email" placeholder="email" id="email">
+
+        <fieldset>
+            <legend>Tipo de usuario:</legend>
+            <div>
+              <input type="radio" id="huey" name="tipo-usuario" value="cliente" checked>
+              <label for="huey">Cliente</label>
+            </div>
+            <div>
+              <input type="radio" id="dewey" name="tipo-usuario" value="tecnico">
+              <label for="dewey">Técnico</label>
+            </div>
+            <div>
+              <input type="radio" id="louie" name="tipo-usuario" value="administrador">
+              <label for="louie">Administrador</label>
+            </div>
+        </fieldset>
+        <input type="submit" value="Enviar">
+        <input type="checkbox" value="Acepto los términos y condiciones" id="terminos">
+        <label for="terminos">Acepto los términos y condiciones</label>
+    </form>
+    <a href="../index.html">Atrás</a>
+</div>
+</body>
+</html>
