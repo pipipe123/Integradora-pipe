@@ -14,11 +14,11 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     // $tipo=$_POST['tipo-usuario'];
 
     
-    //     echo "nombre: ".$nombre."<br>";
-    //     echo "pass: ".$pass."<br>";
-    //     echo "email: ".$email."<br>";
-    //     echo "proyecto: ".$proyecto."<br>";
-    //     echo "tipo: ".$tipo."<br>";
+        // echo "nombre: ".$nombre."<br>";
+        // echo "pass: ".$pass."<br>";
+        // echo "email: ".$email."<br>";
+        // echo "tipo: ".$tipo."<br>";
+        // echo "proyecto: ".$proyecto."<br>";
 
 
 

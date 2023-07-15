@@ -12,7 +12,7 @@
   //Metodo de conexion procedural
    $conexion=mysqli_connect($servidor,$usuario,$password,$bd);
 
-//   if ($conexion)
-//      echo "Se conecto exitosamente ok a la BD";
+  // if ($conexion)
+  //   echo "Se conecto exitosamente ok a la BD";
 
 ?>
