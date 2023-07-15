@@ -10,8 +10,8 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
      $nombre=$_POST['nombre'];
      $pass=$_POST['pass'];
      $email=$_POST['email'];
-     $proyecto=$_POST['proyecto'];
      $tipo=$_POST['tipo-usuario'];
+     $proyecto=$_POST['proyecto'];
 
 
     
@@ -25,30 +25,35 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     switch ($tipo) {
         case 'cliente':
             $sql="insert into cliente values(null,'$nombre','$email','$pass','$proyecto')";
-            echo " <script>   
-            alert('cuenta .$tipo. agregada correctamente');
-         </script>";
+
             break;
 
-            case 'tecnico':
-                $sql="insert into programador values(null,'$nombre','$email','$pass',null,null)";
-                echo " <script>   
-                alert('cuenta .$tipo. agregada correctamente');
+        case 'tecnico':
+            // $sql="insert into programador values(null,'$nombre','$email','$pass',null,null)";
+            $sql="insert into programador (id_programador,nombre,pass,email,n_tickets,lider_de_proyecto) values          (null,'$nombre','$pass','$email',null,null)";
+                
+            break;
+
+        case 'administrador':
+            //$sql="insert into administrador values(null,'$nombre','$email','$pass')";
+            $sql="insert into administrador(id_admin, nombre, Email,Clave) values(null,'$nombre','$email','$pass')";
+            break;
+        }
+                // print($sql);
+    $ejecutar_sql=$conexion->query($sql);
+
+         
+    if ($ejecutar_sql)
+    {
+       echo " <script>   
+                alert('... Usuario $tipo Agregado Correctamente ... ');
              </script>";
-                    break;
-
-                case 'administrador':
-                    $sql="insert into administrador values(null,'$nombre','$email','$pass')";
-                    echo " <script>   
-                    alert('cuenta .$tipo. agregada correctamente');
-                 </script>";   
-            break;
-
-        default:
-            echo " <script>   
-            alert('algo salio mal');
-            </script>";
-        break;
+    }
+    else
+    {
+    echo " <script>   
+             alert('... No fue posible agregar al usuario $tipo  verifique por favor... ');
+          </script>";
     }
 }
 
