@@ -45,16 +45,24 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
          
     if ($ejecutar_sql)
     {
-       echo " <script>   
-                alert('... Usuario $tipo Agregado Correctamente ... ');
-             </script>";
+        $sql ="insert into usuarios(id, nombre, pass, email, tipo, proyecto) values(null,'$nombre','$pass','$email','$tipo','$proyecto')";
+        $ejecutar_sql=$conexion->query($sql);
+
+        if($ejecutar_sql){
+            echo " <script>   
+            alert('...  usuario $tipo agregado correctamente... ');
+            location.href='login.php';
+         </script>";
+         
+
+        }   else
+        {
+        echo " <script>   
+                 alert('... No fue posible agregar al usuario $tipo  verifique por favor... ');
+              </script>";
+        }
     }
-    else
-    {
-    echo " <script>   
-             alert('... No fue posible agregar al usuario $tipo  verifique por favor... ');
-          </script>";
-    }
+ 
 }
 
 ?>
