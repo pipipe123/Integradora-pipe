@@ -12,7 +12,7 @@
     <title>inicio</title>
 </head>
 <body>
-    <a href="./sesiones/html/login.html">login</a>
+    <a href="./sesiones/html/login.php">login</a>
     <a href="./sesiones/html/registrar.php">registro</a>
 </body>
 </html>
