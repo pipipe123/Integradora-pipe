@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/* Generales de santa ursula */
+
+* {
+    font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+}
+
+body{
+    color: aliceblue;
+    background-image: url(https://engranedigital.com/wp-content/uploads/2019/01/Engrane_digital_fondo.jpg);
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  header {
+    width: auto;
+    height: 9rem;
+    line-height: 9rem;
+  }
+  
+  header h1 {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 2rem;
+    margin-top: -3rem;
+  }
+  
+  
+  .content {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 75rem;
+    height: 100vh;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 2rem;
+    margin-top: 1.8rem;
+  }
+  
+  
+  .usuario {
+    position: absolute;
+    display: block;
+    top: 0;
+    width: 9rem;
+    left: 0;
+    line-height: 9rem;
+    cursor: pointer;
+  }
+  
+  .usuario img {
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 0;
+    left: 65rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(5, 1, 29, 0.644);
+    backdrop-filter: blur(2px);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .usuario :hover{
+    background-color: #333;
+  }
+
+  .usuario :active{
+    background-color: rgb(8, 8, 8);
+  }
+
+
+  form{
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+    float: left;
+    margin-left: 4.6rem;
+}
+
+  form:hover {
+  transform: translate3d(0, -10px, 0);
+}
+
+  form:active{
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+}
+  
+  .content-box{
+    max-width: 5rem;
+    padding: .7rem;
+    border-radius: 10px;
+    background: rgba(36, 36, 36, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 17, 255, 0.37);
+    backdrop-filter: blur(2px);
+    cursor: pointer;
+  }
+
+  .content-box img{
+    width: 5rem;
+    height: 5rem;
+    border-radius: .6rem;
+  }
+
+  .content-box a{
+    text-decoration: none;
+    color: azure;
+  }
+
+  .content-box:active{
+    background-color: #333;
+  }
+
+
+/* Estilos para el encabezado */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .logo {
+    width: 350px;
+    height: 100px;
+}
+
+  .header img{
+    height: auto;
+    max-width: 20%;
+    margin-left: 10rem;
+    margin-top: 1rem;
+  }
+  /* Estilos para el menú */
+  
+  .menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+    margin-right: 5rem;
+  }
+
+  .cabe{
+    padding: 3rem 4rem 1rem 4rem;
+  }
+
+  .cabe:hover{
+    animation: cabes 1s both;
+  }
+
+  @keyframes cabes {
+    0%{
+      padding-top: 5rem;
+      padding: 3rem 4rem 2rem 4rem;
+    }
+    50%{
+      padding-top: 5rem;
+      padding: 3rem 4rem 3rem 4rem;
+    }
+    100%{
+      padding-top: 5rem;
+      padding: 3rem 4rem 3.2rem 4rem;
+    }
+    
+  }
+
+  .menu li {
+    margin-left: 20px;
+  }
+
+  .menu a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .menu li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+  }
+  .menu li a:hover{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(0, 233, 225, 1);
+}
+
+ div{
+  display: block;
+ }
+
+ .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-menu li {
+  display: block;
+}
+
+.menu-toggle {
+display: none;
+cursor: pointer;
+}
+
+
+/* Estilos para el menú responsivo */
+@media (max-width: 768px) {
+.header {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+.menu {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 0;
+}
+
+.menu li {
+  margin: 5px 0;
+}
+
+.menu-toggle {
+display: block;
+order: -1;
+cursor: pointer;
+padding: 5px;
+background-color: #333;
+color: #fff;
+border: none;
+transition: all 0.3s ease;
+}
+
+.menu-toggle.active {
+background-color: transparent;
+}
+
+.menu-toggle.active span {
+background-color: #fff;
+}
+
+.menu-toggle span {
+display: block;
+width: 20px;
+height: 2px;
+background-color: #fff;
+margin-bottom: 4px;
+transition: all 0.3s ease;
+}
+
+.dropdown-menu {
+display: none;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.dropdown-menu.active {
+display: block;
+}
+}
+
+#tickets-table {
+  border-collapse: collapse;
+  width: 100%;
+  cursor: pointer;
+}
+
+#tickets-table th, #tickets-table td {
+  padding: 15px;
+}
+
+#tickets-table th {
+  background-color: #5b509c;
+  color: #fff;
+
+}
+
+#tickets-table td {
+  background-color: rgb(255, 255, 255)
+  
+}
+
+#tickets-table tr:nth-child(even) td {
+  background-color: #ffffff;
+}
+
+
+#content {
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+  .content-box {
+      display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #ecf0f1;
+    float: left;
+    width: 10%;
+    margin-left: 2rem;
+  }
+  .content-box img {
+    width: 50px;
+    float: left;
+    margin-right: 10px;
+  }
+  .content-box p {
+    margin: 0;
+  }
+  
+  /* Estilos para la tabla de tickets */
+  #tickets-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  #tickets-table th, #tickets-table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+  #tickets-table th {
+    background-color: #507f9c;
+    color: #fff;
+  }
+  #tickets-table td {
+    background-color: #fff;
+  }
+  #tickets-table tr:nth-child(even) td {
+    background-color: #f2f2f2;
+  }
+  
+  .main{
+    margin: .5rem;
+    height: 7rem;
+    background-color: rgba(17, 0, 255, 0.253);
+    border: 2px solid rgba(136, 6, 168, 0.096);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+  
+  }
+  
+  .main div{
+    text-align: center;
+  }
+  
+  .main div h1{
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .main p{
+    overflow: auto;
+    font-family: 'Lato', sans-serif;
+  }
+
+h5{
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 1rem;
+
+}
+#usuarios {
+  border-collapse: collapse;
+  width: 100%;
+  cursor: pointer;
+}
+
+#usuarios th, #tickets-table td {
+  padding: 15px;
+}
+
+#usuarios th {
+  background-color: #5b509c;
+  color: #fff;
+
+}
+
+#usuarios td {
+  background-color: rgb(255, 255, 255)
+  
+}
+
+#usuarios tr:nth-child(even) td {
+  background-color: #ffffff;
+}
+
+.content table{
+  margin-top: 1rem;
+  color: #111111;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+}
+
