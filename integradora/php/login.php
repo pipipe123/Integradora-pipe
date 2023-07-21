@@ -3,7 +3,7 @@
 
 //AQUI ENTRA DESPUES DE PRESIONAR EL BOTON DE SUBMIT
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
-     include_once("../../back/conexion.php");
+     include_once("conexion.php");
 
      
      $us=$_POST['nombre'];
@@ -38,15 +38,15 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         }
         switch ($tipo) {
             case 'cliente':
-                header("location:../../vistas/Cliente/Cliente(semifinal)/Index.html");
+                header("location:cliente.php");
                 break;
                 
             case 'tecnico':
-                header("location:../../vistas/tecnico/tecnico.html");
+                header("location:../html/tecnico.html");
                 break;
                     
             case 'administrador':
-                header("location:../../vistas/admin/integradora.html");
+                header("location:admin.php");
                 break;
         }
     }
@@ -66,7 +66,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/estilos_login.css">
     <title>Login</title>
 </head>
@@ -91,16 +90,11 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             </li>
         </ul>
     </div>
-
+    
     <div class="content">
         <header>
-            <h1>Bienvenido al inicio de sesión</h1>
-            <div class="atras">
-                <a href="registrar.php" id="atras">
+            <h1 style="color: black">Bienvenido al inicio de sesión</h1>
 
-                    <img src="../img/descarga.png" alt="Estructura de una pagina Web" for="atras">
-                </a>
-            </div>
         </header>
         <form  method="POST" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>  ">
 
@@ -121,7 +115,8 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             </script>
 
             <input type="submit" value="Entrar" name="entrar" onclick="validarEmail()">
-            <a href="lostpass.html" id="recPass">Recuperar contraseña</a>
+            <a href="../html/lostpass.html" id="recPass">Recuperar contraseña</a>
+            <a href="registrar.php">Registrate</a>
 
         </form>
         
