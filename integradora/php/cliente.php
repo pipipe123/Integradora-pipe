@@ -1,3 +1,23 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"]=="POST"){
+    include_once('conexion.php');
+
+     $fecha=$_POST['Fecha'];
+     $hora=$_POST['Hora'];
+     $des=$_POST['Descripcion'];
+    //  $img=$_POST['imagen']; <--aqui van a ir las imagenes
+            $sql="insert into ticket (id,fecha,hora,des,estado,fk_tecnico,fk_cliente,fk_admin) values (null,'$fecha','$hora','$des','registrado',null,null,null)";
+            $ejecutar_sql=$conexion->query($sql);
+            if($ejecutar_sql){
+                echo "<script>
+                    alert('ticket creado exitosamente');
+                </script>";
+            }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +25,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuario</title>
-    <link rel="stylesheet" href="Estilos.css">
+    <link rel="stylesheet" href="../css/cliente.css">
     <style>
     
     </style>
@@ -29,18 +49,18 @@
     <h1>¿Algún Problema?</h1>
     <p>No te preocupes, cuéntanos a nosotros con la creación de tu ticket y te brindaremos al mejor equipo de soporte técnico para resolverlo.</p>
 
-    <form action="procesar_ticket.php" method="POST">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <label  for="Fecha">Fecha de creacion:</label>
-        <input type="text" id="Fecha" name="Fecha" required>
+        <input type="date" id="Fecha" name="Fecha" required>
     
         <label for="Hora">Hora de creacion:</label>
-        <input type="text" id="Hora" name="Hora" required>
+        <input type="time" id="Hora" name="Hora" required>
     
         <label for="Titulo">Titulo del problema:</label>
         <input type="text" id="Titulo" name="Titulo" required>
     
         <label for="descripcion">Descripción del problema:</label>
-        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+        <textarea id="descripcion" name="Descripcion" rows="4" required></textarea>
         
             <label  for="imagen" class="adjuntar-imagen">Adjuntar imagen:</label>
         <input type="file" id="imagen" name="imagen" class="input-imagen"><br><br><br>

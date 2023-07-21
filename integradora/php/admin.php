@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>▷ Engrane Digital: Usuarios</title>
     <link rel="icon" href="img/logo.png" type="image/png">
-    <link rel="stylesheet" href="css/usuario.css">
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
     <div class="header">
@@ -173,7 +173,7 @@
 <br><br>
 <button class="ui-btn">
     <span>
-    <a href="html/usuario.html">USUARIOS</a>
+    <a href="../php/usuarioQA.php">USUARIOS</a>
     </span>
 </button>
 

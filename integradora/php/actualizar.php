@@ -1,37 +1,43 @@
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
-
-if ($_SERVER["REQUEST_METHOD"]=="POST"){
-     //Desactivar las noticias y mostrar los errores
-
-     //1.- Conectarse a la BD
-     include_once("../../back/inserciones.php");
-     //2.- Traer los datos del formulario
-    // $nombre=$_POST['nombre'];
-    // $pass=$_POST['pass'];
-    // $email=$_POST['email'];
-    // $proyecto=$_POST['proyecto'];
-    // $tipo=$_POST['tipo-usuario'];
-
-    
-        // echo "nombre: ".$nombre."<br>";
-        // echo "pass: ".$pass."<br>";
-        // echo "email: ".$email."<br>";
-        // echo "tipo: ".$tipo."<br>";
-        // echo "proyecto: ".$proyecto."<br>";
-
-
-
+include_once('conexion.php');
+$id=$_REQUEST['id'];
+$sql="select * from usuarios where id='$id'";
+print($sql);
+$ejecutar_sql=$conexion->query($sql);
+if ($fila = $ejecutar_sql->fetch_assoc())
+{
+    //me guarda el registro en el objeto $fila
 }
 
+if ($_SERVER["REQUEST_METHOD"]=="POST"){
+    // error_reporting(E_ALL ^ E_NOTICE);
+
+    include_once('conexion.php');
+
+    $nombre=$_POST['nombre'];
+    $email=$_POST['email'];
+    $tipo=$_POST['tipo'];
+    $proyecto=$_POST['proyecto'];
+
+    $sql="update usuarios set nombre='$nombre', email='$email', tipo='$tipo', proyecto='$proyecto'  where id=$id ";
+    print($sql);
+    $ejecutar_sql=$conexion->query($sql);
+
+    if ($ejecutar_sql)
+    {
+        echo " <script>   
+            alert('... usuario Actualizado Correctamente ... ');
+            location.href='usuarioQA.php';
+            </script>";
+    }
+    else
+    {
+        echo " <script>   
+            alert('... No fue posible actualizar al usuario, verifique por favor... ');
+            </script>";
+    }
+}
 ?>
-
-
-
-
-
-
-
 
 
 <!DOCTYPE html>
@@ -46,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 </head>
 <body>
 
-  <div class="header">
+<div class="header">
     <a href="https://engranedigital.com/">
         <img src="https://engranedigital.com/wp-content/uploads/2018/09/Engrane_digital_logo_2.png" alt="Engranito" width="350px" height="100px">
     </a>
@@ -66,24 +72,25 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     </ul>
 </div>
 
-<h1>Bienvenido al registro</h1>
+
 <div class="content">
-    <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> " method="post">
-        <input type="button" value="Registrese" id="usuario">
-        <input type="text" placeholder="Nombre" id="nombre" name="nombre">
-        <input type="password" placeholder="Contraseña" id="contraseña" name="pass">
-        <input type="email" placeholder="Email" id="email" name="email">
-        <input type="text" placeholder="Proyecto" id="proyecto" style="display: none;" name="proyecto" >
-        
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+
+
+        <input type="button" value="Actualizar">
+
+        <input type="text" placeholder="Nombre" id="nombre" name="nombre" value="<?php echo $fila['nombre']  ?>">
+        <input type="email" placeholder="Email" id="email" name="email" value="<?php echo $fila['email']  ?>">
+        <input type="text" placeholder="Proyecto" id="proyecto" style="display: none;" name="proyecto" value="<?php echo $fila['proyecto']  ?>">
+        <input type="hidden" name="id" value="<?php echo $fila['id']?>">
 
         <script>
             function validarEmail() {
-              var email = document.getElementById("email").value;
-              var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-              if (!regex.test(email)) {
-             
-                alert("El correo electrónico no es válido.");
-              }
+                var email = document.getElementById("email").value;
+                var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!regex.test(email)) {
+                    alert("El correo electrónico no es válido.");
+                }
             }
         </script>
 
@@ -95,41 +102,35 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             <table>
                 <tr>
                     <div>
-                        <td><input type="radio" id="huey" name="tipo-usuario" value="cliente" checked></td>
+                        <td><input type="radio" id="huey" name="tipo" value="cliente" <?php if( $fila['tipo']=="cliente"){?> checked <?php } ?>></td>
                         <td><label for="huey">Cliente</label></td>
                     </div>
                 </tr>
                 <tr>
                     <div>
-                      <td><input type="radio" id="dewey" name="tipo-usuario" value="tecnico"></td>
-                      <td><label for="dewey">Técnico</label></td>
+                        <td><input type="radio" id="dewey" name="tipo" value="tecnico" <?php if( $fila['tipo']=="tecnico"){?> checked <?php } ?>></td>
+                        <td><label for="dewey">Técnico</label></td>
                     </div>
                 </tr>
                 <tr>
                     <div>
-                      <td><input type="radio" id="louie" name="tipo-usuario" value="administrador"></td>
-                      <td><label for="louie">Administrador</label></td>
+                        <td><input type="radio" id="louie" name="tipo" value="administrador" <?php if( $fila['tipo']=="administrador"){?> checked <?php } ?>></td>
+                        <td><label for="louie">Administrador</label></td>
                     </div>
                 </tr>
-                
+
             </table>
         </fieldset>
 
         <input type="submit" value="Enviar" onclick="validarEmail()">
-        <table>
-            <tr>
-                <td><input type="checkbox" value="Acepto los términos y condiciones" id="terminos"></td>
-                <td><label for="terminos">Acepto los términos y condiciones</label></td>
-            </tr>
-        </table>
-        
+
 
     </form>
-    <a href="login.php">Atrás</a>
+    <a href="usuarioQA.php">Atrás</a>
 </div>
 
 <script>
-    var tipoUsuario = document.getElementsByName("tipo-usuario");
+    var tipoUsuario = document.getElementsByName("tipo");
     var campoProyecto = document.getElementById("proyecto");
 
     // Función para mostrar u ocultar el campo de proyecto
