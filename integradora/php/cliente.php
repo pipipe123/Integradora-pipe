@@ -26,9 +26,15 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuario</title>
     <link rel="stylesheet" href="../css/cliente.css">
-    <style>
-    
-    </style>
+    <script>
+        function toggleMenu() {
+            var menuToggle = document.getElementById("menu-toggle");
+            var menu = document.getElementById("menu");
+
+            menuToggle.classList.toggle("active");
+            menu.classList.toggle("active");
+        }
+    </script>
 </head>
 <body>
     <div class="header">
@@ -40,6 +46,14 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             <li><a href="https://engranedigital.com/guias-engrane/index.html" class="cabe">Guias</a></li>
             <li><a href="https://engranedigital.com/nosotros/index.html" class="cabe">Nosotros</a></li>
             <li><a href="https://engranedigital.com/contacto/index.html" class="cabe">Contacto</a></li>
+            <li>
+                <a href="#" class="cabe">Más</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Opción 1</a></li>
+                    <li><a href="#">Opción 2</a></li>
+                    <li><a href="#">Opción 3</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 
@@ -72,4 +86,3 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
        
 </body>
 </html>
-
