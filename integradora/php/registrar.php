@@ -1,38 +1,12 @@
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
+
 
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
-     //Desactivar las noticias y mostrar los errores
 
-     //1.- Conectarse a la BD
      include_once("inserciones.php");
-     //2.- Traer los datos del formulario
-    // $nombre=$_POST['nombre'];
-    // $pass=$_POST['pass'];
-    // $email=$_POST['email'];
-    // $proyecto=$_POST['proyecto'];
-    // $tipo=$_POST['tipo-usuario'];
-
-    
-        // echo "nombre: ".$nombre."<br>";
-        // echo "pass: ".$pass."<br>";
-        // echo "email: ".$email."<br>";
-        // echo "tipo: ".$tipo."<br>";
-        // echo "proyecto: ".$proyecto."<br>";
-
-
-
 }
 
 ?>
-
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,37 +29,22 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         <li><a href="https://engranedigital.com/guias-engrane/index.html" class="cabe">Guias</a></li>
         <li><a href="https://engranedigital.com/nosotros/index.html" class="cabe">Nosotros</a></li>
         <li><a href="https://engranedigital.com/contacto/index.html" class="cabe">Contacto</a></li>
-        <li>
-            <a href="#" class="cabe">Más</a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Opción 1</a></li>
-                <li><a href="#">Opción 2</a></li>
-                <li><a href="#">Opción 3</a></li>
-            </ul>
-        </li>
+        
     </ul>
 </div>
 
 <h1>Bienvenido al registro</h1>
 <div class="content">
     <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> " method="post">
-        <input type="button" value="Registrese" id="usuario">
+        <input type="button" value="Registrese">
         <input type="text" placeholder="Nombre" id="nombre" name="nombre" required>
         <input type="password" placeholder="Contraseña" id="contraseña" name="pass" required>
         <input type="email" placeholder="Email" id="email" name="email" required>
-        <input type="text" placeholder="Proyecto" id="proyecto" style="display: none;" name="proyecto"  >
+        <input type="password" placeholder="Codigo" id="codigo" style="display: none;" name="codigo">
+        <input type="text" placeholder="Especialidad" id="especialidad" style="display: none;" name="especialidad">
         
 
-        <script>
-            function validarEmail() {
-              var email = document.getElementById("email").value;
-              var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-              if (!regex.test(email)) {
-             
-                alert("El correo electrónico no es válido.");
-              }
-            }
-        </script>
+
 
 
 
@@ -95,33 +54,33 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             <table>
                 <tr>
                     <div>
-                        <td><input type="radio" id="huey" name="tipo" value="cliente" checked></td>
+                        <td><input type="radio" id="huey" name="rol" value="cliente" checked></td>
                         <td><label for="huey">Cliente</label></td>
                     </div>
                 </tr>
                 <tr>
                     <div>
-                      <td><input type="radio" id="dewey" name="tipo" value="tecnico"></td>
+                      <td><input type="radio" id="dewey" name="rol" value="tecnico"></td>
                       <td><label for="dewey">Técnico</label></td>
                     </div>
                 </tr>
                 <tr>
                     <div>
-                      <td><input type="radio" id="louie" name="tipo" value="administrador"></td>
+                      <td><input type="radio" id="louie" name="rol" value="admin"></td>
                       <td><label for="louie">Administrador</label></td>
                     </div>
                 </tr>
                 
             </table>
         </fieldset>
-
-        <input type="submit" value="Enviar" onclick="validarEmail()">
         <table>
             <tr>
-                <td><input type="checkbox" value="Acepto los términos y condiciones" id="terminos"></td>
-                <td><label for="terminos">Acepto los términos y condiciones</label></td>
+                <td><input type="checkbox" value="Acepto los términos y condiciones" id="terminos" required></td>
+                <td><label for="terminos"><a href="">Acepto los términos y condiciones</a></label></td>
             </tr>
         </table>
+        <input type="submit" value="Enviar">
+       
         
 
     </form>
@@ -129,15 +88,22 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 </div>
 
 <script>
-    var tipoUsuario = document.getElementsByName("tipo");
-    var campoProyecto = document.getElementById("proyecto");
+    var tipoUsuario = document.getElementsByName("rol");
+    var campoCodigo = document.getElementById("codigo");
+    var campoEspecial = document.getElementById("especialidad");
 
     // Función para mostrar u ocultar el campo de proyecto
     function mostrarCampoProyecto() {
         if (tipoUsuario[0].checked) {
-            campoProyecto.style.display = "block";  // Mostrar el campo proyecto
+            campoCodigo.style.display = "none";  // Mostrar el campo codigo
         } else {
-            campoProyecto.style.display = "none";   // Ocultar el campo proyecto
+            campoCodigo.style.display = "block";   // Ocultar el campo codigo
+        }
+
+        if (tipoUsuario[0].checked || tipoUsuario[2].checked){
+            campoEspecial.style.display = "none";  // Mostrar el campo proyecto
+        } else {
+            campoEspecial.style.display = "block";   // Ocultar el campo proyecto
         }
     }
 
