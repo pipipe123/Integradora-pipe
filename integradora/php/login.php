@@ -8,11 +8,10 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
      
      $us=$_POST['nombre'];
      $ps=$_POST['pass'];
-     $em=$_POST['email'];
      // echo $us." ".$ps;
      
      //Instruccion SQL sin encriptar
-     $sql="select tipo from usuarios where nombre='$us' and pass='$ps' and email='$em'";
+     $sql="select id_rol from usuarios where pass = md5('$ps') and nombre ='$us' or email= '$us'";
      // Conexión a la base de datos
     /*$servername = "localhost";
     $username = "tu_usuario";
@@ -34,21 +33,23 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         while ($fila = $resultado->fetch_assoc()) {//<- es lo que trae el contenido del renglon
             # code...
             // print("tipo".$fila["tipo"]);
-            $tipo =$fila["tipo"]; //fila es lo que trae los resultados de el renglon asociado [tipo] es lo que estaba buscando
+            $tipo =$fila["id_rol"]; //fila es lo que trae los resultados de el renglon asociado [tipo] es lo que estaba buscando
         }
         switch ($tipo) {
-            case 'cliente':
+            case '2':
                 header("location:cliente.php");
                 break;
                 
-            case 'tecnico':
+            case '3':
                 header("location:../html/tecnico.html");
                 break;
                     
-            case 'administrador':
+            case '1':
                 header("location:admin.php");
                 break;
         }
+    }else{
+        
     }
     //   if($sql){
     //      $tipo= $sql;
@@ -80,14 +81,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             <li><a href="https://engranedigital.com/guias-engrane/index.html" class="cabe">Guias</a></li>
             <li><a href="https://engranedigital.com/nosotros/index.html" class="cabe">Nosotros</a></li>
             <li><a href="https://engranedigital.com/contacto/index.html" class="cabe">Contacto</a></li>
-            <li>
-                <a href="#" class="cabe">Más</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Opción 1</a></li>
-                    <li><a href="#">Opción 2</a></li>
-                    <li><a href="#">Opción 3</a></li>
-                </ul>
-            </li>
         </ul>
     </div>
     
@@ -98,21 +91,10 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         </header>
         <form  method="POST" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>  ">
 
-            <input type="text" placeholder="Nombre" id="nombre" name="nombre">
+            <input type="text" placeholder="Ingrese nombre o email" id="nombre" name="nombre">
             <input type="password" placeholder="Contraseña" id="contraseña" name="pass">
-            <input type="email" placeholder="Email" id="email" name="email">
 
-            <script>
-                function validarEmail() {
-                    var email = document.getElementById("email").value;
-                    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-                    if (!regex.test(email)) {
-                    
-                        alert("El correo electrónico no es válido.");
-                    }
-                }
-            </script>
+            
 
             <input type="submit" value="Entrar" name="entrar" onclick="validarEmail()">
             <a href="../html/lostpass.html" id="recPass">Recuperar contraseña</a>

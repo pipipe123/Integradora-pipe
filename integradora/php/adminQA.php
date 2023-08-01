@@ -17,14 +17,6 @@
             <li><a href="https://engranedigital.com/guias-engrane/index.html" class="cabe">Guias</a></li>
             <li><a href="https://engranedigital.com/nosotros/index.html" class="cabe">Nosotros</a></li>
             <li><a href="https://engranedigital.com/contacto/index.html" class="cabe">Contacto</a></li>
-            <li>
-                <a href="#" class="cabe">Más</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Opción 1</a></li>
-                    <li><a href="#">Opción 2</a></li>
-                    <li><a href="#">Opción 3</a></li>
-                </ul>
-            </li>
         </ul>
     </div>
 

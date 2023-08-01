@@ -4,6 +4,7 @@ include_once("conexion.php");
 $sql = "select * from usuarios";
 
 $ejecucion_sql = $conexion->query($sql);
+$rol=0;
 ?>
 
 
@@ -28,14 +29,7 @@ $ejecucion_sql = $conexion->query($sql);
             <li><a href="https://engranedigital.com/guias-engrane/index.html" class="cabe">Guias</a></li>
             <li><a href="https://engranedigital.com/nosotros/index.html" class="cabe">Nosotros</a></li>
             <li><a href="https://engranedigital.com/contacto/index.html" class="cabe">Contacto</a></li>
-            <li>
-                <a href="#" class="cabe">Más</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Opción 1</a></li>
-                    <li><a href="#">Opción 2</a></li>
-                    <li><a href="#">Opción 3</a></li>
-                </ul>
-            </li>
+        
         </ul>
     </div>
 
@@ -45,26 +39,30 @@ $ejecucion_sql = $conexion->query($sql);
     <tr>
       <th>ID</th>
       <th>Nombre</th>
-      <th>Pass</th>
       <th>Email</th>
       <th>Tipo</th>
-      <th>Proyecto</th>
+      
       <th colspan="2">Acciones</th>
     </tr>
         <?php while ($fila = $ejecucion_sql->fetch_assoc()) { ?>
             <tr>
                 <td><?php echo $fila['id']; ?></td>
                 <td><?php echo $fila['nombre']; ?></td>
-                <td><?php echo $fila['pass']; ?></td>
+
                 <td><?php echo $fila['email']; ?></td>
-                <td><?php echo $fila['tipo']; ?></td>
-                <?php 
-                    if($fila['proyecto']==""){
-                        $fila['proyecto']="-";
-                    }
-                ?>
-                <td><?php echo $fila['proyecto']; ?></td>
-                <td><a href='actualizar.php?id=<?php echo $fila['id']; ?>'>>actualizar</a></td>
+                <td><?php switch( $fila['id_rol']){
+                    case 1:
+                        echo "Admin";
+                        break;
+                        case 2:
+                            echo "Cliente";
+                            break;
+                            case 3:
+                                echo "Tecnico";
+                                break;
+                } ?></td>
+
+                <td><a href='actualizar.php'id=<?php echo $fila['id']; ?>'>>actualizar</a></td>
                 <td><a href='eliminar.php?id=<?php echo $fila['id']; ?>'>eliminar</a></td>
 
             </tr>

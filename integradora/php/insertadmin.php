@@ -2,7 +2,7 @@
 // Toma la informacion del campo codigo
 $codigo=$_POST['codigo'];
 
-$sql="INSERT INTO usuarios VALUES (null,'$nombre','$pass','$email',1, 'admin')";
+$sql="INSERT INTO usuarios VALUES (null,'$nombre',md5('$pass'),'$email',1, 'admin')";
 
 
 

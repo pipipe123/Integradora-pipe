@@ -274,3 +274,29 @@ body{
 #menu-toggle {
   display: none;
 }
+
+
+/*Estilo del boton de cuenta*/
+#user{
+  
+  float: right;
+}
+
+#user a{
+  margin-right: 1rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: #3333336c;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+#user a:hover{
+  background-color: #000000;
+}
+
+#user a:active{
+  background-color: #474747;
+}

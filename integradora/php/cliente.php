@@ -57,32 +57,54 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         </ul>
     </div>
 
-
+<div id="user">
+    <a href="actualizarCliente.php">Cuenta</a>
+</div>
    
 <div id="ticket">
     <h1>¿Algún Problema?</h1>
     <p>No te preocupes, cuéntanos a nosotros con la creación de tu ticket y te brindaremos al mejor equipo de soporte técnico para resolverlo.</p>
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        <label  for="Fecha">Fecha de creacion:</label>
-        <input type="date" id="Fecha" name="Fecha" required>
-    
-        <label for="Hora">Hora de creacion:</label>
-        <input type="time" id="Hora" name="Hora" required>
-    
-        <label for="Titulo">Titulo del problema:</label>
-        <input type="text" id="Titulo" name="Titulo" required>
-    
-        <label for="descripcion">Descripción del problema:</label>
-        <textarea id="descripcion" name="Descripcion" rows="4" required></textarea>
-        
-            <label  for="imagen" class="adjuntar-imagen">Adjuntar imagen:</label>
-        <input type="file" id="imagen" name="imagen" class="input-imagen"><br><br><br>
-   
-       
-        <input type="submit" value="Crear Ticket">
+    <form action="enviarticket.php" id="formulario" method="POST">
+    <h3>Nombre</h3>
+    <input type="text" name="name" placeholder="Ingrese su nombre" id="nombre">
+    <br>
+    <h3>Proyecto</h3>
+    <input name="proyecto" id="proyecto" cols="100" rows="10" maxlength="500" placeholder="Ingrese el proyecto del problema"></input>
+    <br>
+    <h3>Descripcion</h3>
+    <textarea name="des" id="des" cols="100" rows="10" maxlength="500" placeholder="Describa su problema"></textarea>
+    <br>
+    <label  for="imagen" class="adjuntar-imagen">Adjuntar imagen:</label>
+        <input type="file" id="imagen" name="imagen" class="input-imagen"><br>
+    <input type="button" id="enviar" value="Enviar comentario">
+</form>
 </div>
     
-       
+<script>
+            
+            let enviar = document.getElementById("enviar");
+            
+            enviar.addEventListener("click", hola);
+            function hola(){
+                let nombre = (document.getElementById("nombre")).value;
+                let des = (document.getElementById("des")).value;
+                let proyecto = (document.getElementById("proyecto")).value;
+                if(nombre == ""){
+                    alert("Por favor ingresa un nombre")
+                    return;
+                }
+                if(des==""){
+                    alert("Ingrese una descripcion")
+                    return;
+                }
+                if(proyecto==""){
+                    alert("Defina el proyecto")
+                    return;
+                }
+                (document.getElementById("formulario")).submit()
+                
+            }
+        </script>
 </body>
 </html>

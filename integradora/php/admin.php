@@ -27,150 +27,30 @@
             </li>
         </ul>
     </div>
+<table>
+<?php
+    include_once("conexion.php");
 
-    <div class="content">
-        <h5>Panel</h5>
-        <div class="main">
-            <div id="id">    
-            <div class="id"><h1>ID</h1></div>
-            <div class="id"><p>#001</p></div>
-            </div>
+    $resultado = mysqli_query($conexion, "SELECT * FROM tickets");
+
+    while ($comentario = mysqli_fetch_object($resultado)) {
+        ?>
+        <div class="content">
+          <tr>
+            <td><b><?php echo($comentario->nombre);?></b> <?php echo($comentario->fecha);?></td>
+            <td></td>
+          </tr>
         
-            <div id="des">
-              <div class="des"><h1>Descripcion</h1></div>
-              <div class="des"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam culpa soluta repellendus voluptatum adipisci voluptate, illum, veritatis earum praesentium excepturi sed modi, quasi quas consectetur cum. Non sunt numquam eveniet?</p></div>
-            </div>
+        <br /><p><?php echo($comentario->descripcion);?></p>
         
-          <div id="fecha">
-            <div class="fecha"><h1>Fecha de apertura</h1></div>
-            <div class="fecha"><input type="date" name="" id=""></div>
-          </div>
-        
-          <div id="tecnico">
-            <div class="tecnico"><h1>Tecnico</h1></div>
-            <div class="tecnico"><select name="" id="">
-              <option value="">Juan</option>
-              <option value="">Pedro</option>
-            </select></div>
-          </div>
-        
-          <div id="solucion">
-            <div class="solucion"><h1>Solucion</h1></div>
-            <div class="solucion"><Select>
-              <option value="">Si</option>
-              <option value="">No</option>
-        
-            </Select>
         </div>
-    </div>  
-    </div>
+        
+        <?php
+    }
+
+    ?>
+</table>
     
-    <div class="main">
-        <div id="id">    
-        <div class="id"><h1>ID</h1></div>
-        <div class="id"><p>#002</p></div>
-        </div>
-    
-        <div id="des">
-          <div class="des"><h1>Descripcion</h1></div>
-          <div class="des"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam culpa soluta repellendus voluptatum adipisci voluptate, illum, veritatis earum praesentium excepturi sed modi, quasi quas consectetur cum. Non sunt numquam eveniet?</p></div>
-        </div>
-    
-      <div id="fecha">
-        <div class="fecha"><h1>Fecha de apertura</h1></div>
-        <div class="fecha"><input type="date" name="" id=""></div>
-      </div>
-    
-      <div id="tecnico">
-        <div class="tecnico"><h1>Tecnico</h1></div>
-        <div class="tecnico"><select name="" id="">
-          <option value="">Juan</option>
-          <option value="">Pedro</option>
-        </select></div>
-      </div>
-    
-      <div id="solucion">
-        <div class="solucion"><h1>Solucion</h1></div>
-        <div class="solucion"><Select>
-          <option value="">Si</option>
-          <option value="">No</option>
-    
-        </Select>
-    </div>
-</div>  
-
-</div>
-    
-<div class="main">
-    <div id="id">    
-    <div class="id"><h1>ID</h1></div>
-    <div class="id"><p>#003</p></div>
-    </div>
-
-    <div id="des">
-      <div class="des"><h1>Descripcion</h1></div>
-      <div class="des"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam culpa soluta repellendus voluptatum adipisci voluptate, illum, veritatis earum praesentium excepturi sed modi, quasi quas consectetur cum. Non sunt numquam eveniet?</p></div>
-    </div>
-
-  <div id="fecha">
-    <div class="fecha"><h1>Fecha de apertura</h1></div>
-    <div class="fecha"><input type="date" name="" id=""></div>
-  </div>
-
-  <div id="tecnico">
-    <div class="tecnico"><h1>Tecnico</h1></div>
-    <div class="tecnico"><select name="" id="">
-      <option value="">Juan</option>
-      <option value="">Pedro</option>
-    </select></div>
-  </div>
-
-  <div id="solucion">
-    <div class="solucion"><h1>Solucion</h1></div>
-    <div class="solucion"><Select>
-      <option value="">Si</option>
-      <option value="">No</option>
-
-    </Select>
-</div>
-</div> 
-</div>
-    
-<div class="main">
-    <div id="id">    
-    <div class="id"><h1>ID</h1></div>
-    <div class="id"><p>#004</p></div>
-    </div>
-
-    <div id="des">
-      <div class="des"><h1>Descripcion</h1></div>
-      <div class="des"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam culpa soluta repellendus voluptatum adipisci voluptate, illum, veritatis earum praesentium excepturi sed modi, quasi quas consectetur cum. Non sunt numquam eveniet?</p></div>
-    </div>
-
-  <div id="fecha">
-    <div class="fecha"><h1>Fecha de apertura</h1></div>
-    <div class="fecha"><input type="date" name="" id=""></div>
-  </div>
-
-  <div id="tecnico">
-    <div class="tecnico"><h1>Tecnico</h1></div>
-    <div class="tecnico"><select name="" id="">
-      <option value="">Juan</option>
-      <option value="">Pedro</option>
-    </select></div>
-  </div>
-
-  <div id="solucion">
-    <div class="solucion"><h1>Solucion</h1></div>
-    <div class="solucion"><Select>
-      <option value="">Si</option>
-      <option value="">No</option>
-
-    </Select>
-</div>
-</div>  
-</div>
-<br><br>
 <button class="ui-btn">
     <span>
     <a href="../php/usuarioQA.php">USUARIOS</a>

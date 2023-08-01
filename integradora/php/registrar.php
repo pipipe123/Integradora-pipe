@@ -35,10 +35,10 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
 <h1>Bienvenido al registro</h1>
 <div class="content">
-    <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> " method="post">
+    <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> " method="post" id="formulario">
         <input type="button" value="Registrese">
         <input type="text" placeholder="Nombre" id="nombre" name="nombre" required>
-        <input type="password" placeholder="Contraseña" id="contraseña" name="pass" required>
+        <input type="password" placeholder="Contrasena" id="contrasena" name="pass" required>
         <input type="email" placeholder="Email" id="email" name="email" required>
         <input type="password" placeholder="Codigo" id="codigo" style="display: none;" name="codigo">
         <input type="text" placeholder="Especialidad" id="especialidad" style="display: none;" name="especialidad">
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                 <td><label for="terminos"><a href="">Acepto los términos y condiciones</a></label></td>
             </tr>
         </table>
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Enviar" id="enviar">
        
         
 
@@ -118,3 +118,5 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
 </body>
 </html>
+
+<script src="../js/jquery-3.7.0.js"></script>

@@ -1,7 +1,8 @@
 <?php
 include_once('conexion.php');
-$id=$_REQUEST['id'];
+
 $sql="select * from usuarios where id='$id'";
+$id=$_REQUEST['id'];
 print($sql);
 $ejecutar_sql=$conexion->query($sql);
 if ($fila = $ejecutar_sql->fetch_assoc())
@@ -16,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
     $nombre=$_POST['nombre'];
     $email=$_POST['email'];
-    $tipo=$_POST['tipo'];
+    $tipo=$_POST['id_rol'];
     $proyecto=$_POST['proyecto'];
 
-    $sql="update usuarios set nombre='$nombre', email='$email', tipo='$tipo', proyecto='$proyecto'  where id=$id ";
+    $sql="update usuarios set nombre='$nombre', email='$email', tipo='$tipo'  where id=$id ";
     print($sql);
     $ejecutar_sql=$conexion->query($sql);
 
@@ -61,14 +62,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         <li><a href="https://engranedigital.com/guias-engrane/index.html" class="cabe">Guias</a></li>
         <li><a href="https://engranedigital.com/nosotros/index.html" class="cabe">Nosotros</a></li>
         <li><a href="https://engranedigital.com/contacto/index.html" class="cabe">Contacto</a></li>
-        <li>
-            <a href="#" class="cabe">Más</a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Opción 1</a></li>
-                <li><a href="#">Opción 2</a></li>
-                <li><a href="#">Opción 3</a></li>
-            </ul>
-        </li>
     </ul>
 </div>
 
@@ -81,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
         <input type="text" placeholder="Nombre" id="nombre" name="nombre" value="<?php echo $fila['nombre']  ?>">
         <input type="email" placeholder="Email" id="email" name="email" value="<?php echo $fila['email']  ?>">
-        <input type="text" placeholder="Proyecto" id="proyecto" style="display: none;" name="proyecto" value="<?php echo $fila['proyecto']  ?>">
+    
         <input type="hidden" name="id" value="<?php echo $fila['id']?>">
 
         <script>
@@ -102,19 +95,19 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             <table>
                 <tr>
                     <div>
-                        <td><input type="radio" id="huey" name="tipo" value="cliente" <?php if( $fila['tipo']=="cliente"){?> checked <?php } ?>></td>
+                        <td><input type="radio" id="huey" name="tipo" value="cliente" <?php if( $fila['id_rol']=="cliente"){?> checked <?php } ?>></td>
                         <td><label for="huey">Cliente</label></td>
                     </div>
                 </tr>
                 <tr>
                     <div>
-                        <td><input type="radio" id="dewey" name="tipo" value="tecnico" <?php if( $fila['tipo']=="tecnico"){?> checked <?php } ?>></td>
+                        <td><input type="radio" id="dewey" name="tipo" value="tecnico" <?php if( $fila['id_rol']=="tecnico"){?> checked <?php } ?>></td>
                         <td><label for="dewey">Técnico</label></td>
                     </div>
                 </tr>
                 <tr>
                     <div>
-                        <td><input type="radio" id="louie" name="tipo" value="administrador" <?php if( $fila['tipo']=="administrador"){?> checked <?php } ?>></td>
+                        <td><input type="radio" id="louie" name="tipo" value="administrador" <?php if( $fila['id_rol']=="admin"){?> checked <?php } ?>></td>
                         <td><label for="louie">Administrador</label></td>
                     </div>
                 </tr>
