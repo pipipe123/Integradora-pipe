@@ -1,22 +1,4 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"]=="POST"){
-    include_once('conexion.php');
 
-     $fecha=$_POST['Fecha'];
-     $hora=$_POST['Hora'];
-     $des=$_POST['Descripcion'];
-    //  $img=$_POST['imagen']; <--aqui van a ir las imagenes
-            $sql="insert into ticket (id,fecha,hora,des,estado,fk_tecnico,fk_cliente,fk_admin) values (null,'$fecha','$hora','$des','registrado',null,null,null)";
-            $ejecutar_sql=$conexion->query($sql);
-            if($ejecutar_sql){
-                echo "<script>
-                    alert('ticket creado exitosamente');
-                </script>";
-            }
-
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,15 +8,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuario</title>
     <link rel="stylesheet" href="../css/cliente.css">
-    <script>
-        function toggleMenu() {
-            var menuToggle = document.getElementById("menu-toggle");
-            var menu = document.getElementById("menu");
-
-            menuToggle.classList.toggle("active");
-            menu.classList.toggle("active");
-        }
-    </script>
 </head>
 <body>
     <div class="header">
@@ -56,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             </li>
         </ul>
     </div>
-
+<!-- Este es planeado para actualizar la informacion del cliente pero todavia no tengo nada -->
 <div id="user">
     <a href="actualizarCliente.php">Cuenta</a>
 </div>
@@ -82,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 </div>
     
 <script>
-            
+            // es para verificar que los input no esten vacios
             let enviar = document.getElementById("enviar");
             
             enviar.addEventListener("click", hola);
@@ -101,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                 if(proyecto==""){
                     alert("Defina el proyecto")
                     return;
-                }
+                }//para enviar el formulario
                 (document.getElementById("formulario")).submit()
                 
             }
