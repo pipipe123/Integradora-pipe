@@ -1,10 +1,10 @@
 <?php 
 
-session_start();
 //AQUI ENTRA DESPUES DE PRESIONAR EL BOTON DE SUBMIT
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
      include_once("conexion.php");
-
+    
+    session_start();
      
      $us=$_POST['nombre'];
      $ps=$_POST['pass'];
@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
      
      //Instruccion SQL sin encriptar
      $sql="select id_rol, id from usuarios where pass = md5('$ps') and nombre ='$us' or email= '$us'";
+     print($sql);
      // Conexión a la base de datos
     /*$servername = "localhost";
     $username = "tu_usuario";
@@ -33,9 +34,12 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         while ($fila = $resultado->fetch_assoc()) {//<- es lo que trae el contenido del renglon
             # code...
             // print("tipo".$fila["tipo"]);
+            
             $id_usuario = $fila["id"];
+            print("ESTA ES LA SESIon $id_usuario");
             $tipo =$fila["id_rol"]; //fila es lo que trae los resultados de el renglon asociado [tipo] es lo que estaba buscando
             $_SESSION["id_usuario"]=$id_usuario;
+           
         }
         switch ($tipo) {
             case '2':

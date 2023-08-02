@@ -1,4 +1,9 @@
+<?php
+    include_once("valida_sesion.php");
+    print($id_usuario);
 
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
