@@ -1,6 +1,6 @@
 <?php 
 
-
+session_start();
 //AQUI ENTRA DESPUES DE PRESIONAR EL BOTON DE SUBMIT
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
      include_once("conexion.php");
@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
      // echo $us." ".$ps;
      
      //Instruccion SQL sin encriptar
-     $sql="select id_rol from usuarios where pass = md5('$ps') and nombre ='$us' or email= '$us'";
+     $sql="select id_rol, id from usuarios where pass = md5('$ps') and nombre ='$us' or email= '$us'";
      // Conexión a la base de datos
     /*$servername = "localhost";
     $username = "tu_usuario";
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     if ($conexion->connect_error) {
         die("Error de conexión: " . $conexion->connect_error); //<- si algo sale mal lo truena
     }
-
+    $id_usuario =0;
     $resultado = $conexion->query($sql);  //<- interpreta el query pasandolo de cadena a ya la consulta
     $tipo =""; // <- la inicializa en nada para evitar errores
 
@@ -33,7 +33,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         while ($fila = $resultado->fetch_assoc()) {//<- es lo que trae el contenido del renglon
             # code...
             // print("tipo".$fila["tipo"]);
+            $id_usuario = $fila["id"];
             $tipo =$fila["id_rol"]; //fila es lo que trae los resultados de el renglon asociado [tipo] es lo que estaba buscando
+            $_SESSION["id_usuario"]=$id_usuario;
         }
         switch ($tipo) {
             case '2':
@@ -51,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     }else{
         
     }
+    
     //   if($sql){
     //      $tipo= $sql;
     //      echo "$tipo";
