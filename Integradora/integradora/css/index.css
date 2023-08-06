@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Tektur&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url(https://engranedigital.com/wp-content/uploads/2019/01/Engrane_digital_fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a{
+    position: relative;
+    background-color: blue;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    top: 10rem;
+    left: 42%;
+    border-radius: 20px 20px 0px 40px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Tektur', cursive;
+}
+
+a:hover{
+    animation: selec 1s infinite;
+}
+
+@keyframes selec {
+    0%{
+        padding: 2rem;
+    }
+    50%{
+        padding: 2.5rem;
+    }
+    100%{
+        padding: 2rem;
+    }
+}
