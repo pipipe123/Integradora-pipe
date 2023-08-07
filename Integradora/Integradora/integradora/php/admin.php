@@ -51,7 +51,7 @@ include_once("valida_sesion.php");
 <?php
     include_once("conexion.php");
     
-    $resultado = mysqli_query($conexion, "SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario;");
+    $resultado = mysqli_query($conexion, "SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket;");
 
     while ($comentario = mysqli_fetch_object($resultado)) {
     
@@ -69,8 +69,10 @@ include_once("valida_sesion.php");
             <th><?php echo($comentario->estado);?></th>
             <th name="folio"><?php echo($comentario->proyecto);?></th>
             <th><?php echo($comentario->des);?></th>
+            <th name="folio"> <img src="data:image/jpg;base64,<?php echo base64_encode($comentario->imagen);?>" alt=""></th>
             <th><input type="button" value="Mostrar mas"></th>
             <th><a href="eliminar.php?id=<?php echo($comentario->folio); ?>">Eliminar</a></th>
+
 
     </tbody>
        
