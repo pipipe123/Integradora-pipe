@@ -24,13 +24,21 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
         case 'tecnico':
             include_once("insertecnico.php");
+            $sql="INSERT INTO usuarios VALUES (null,'$nombre',md5('$pass'),'$email',3, 'user')";
+            $ejecutar_sql=$conexion->query($sql);
             $entrar="acceso";
             break;
 
         case 'admin':
             include_once("insertadmin.php");
+            $sql="INSERT INTO usuarios VALUES (null,'$nombre',md5('$pass'),'$email',1, 'user')";
+            $ejecutar_sql=$conexion->query($sql);
             $entrar="acceso";
             break;
+        }
+
+        if ($ejecutar_sql){
+            header("location:login.php");
         }
  }
 

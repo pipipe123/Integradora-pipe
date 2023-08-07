@@ -47,7 +47,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                 break;
         }
     }else{
-        
+       echo "<script>
+            alert('no se pudo iniciar la sesion, por favor intentelo de nuevo mas tarde');
+       </script>";
     }
     
     //   if($sql){
