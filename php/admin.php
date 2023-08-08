@@ -84,7 +84,7 @@ include_once("valida_sesion.php");
     
 <button class="ui-btn">
     <span>
-    <a href="../php/usuarioQA.php">USUARIOS</a>
+    <a href="../php/usuario.php">USUARIOS</a>
     </span>
 </button>
 

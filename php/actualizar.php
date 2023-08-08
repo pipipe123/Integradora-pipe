@@ -1,8 +1,8 @@
 <?php
 include_once('conexion.php');
 
-$sql="select * from usuarios where id='$id'";
 $id=$_REQUEST['id'];
+$sql="select * from usuarios where id='$id'";
 print($sql);
 $ejecutar_sql=$conexion->query($sql);
 if ($fila = $ejecutar_sql->fetch_assoc())
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     $tipo=$_POST['id_rol'];
     $proyecto=$_POST['proyecto'];
 
-    $sql="update usuarios set nombre='$nombre', email='$email', tipo='$tipo'  where id=$id ";
+    $sql="update usuarios set nombre='$nombre', email='$email' where id=$id ";
     print($sql);
     $ejecutar_sql=$conexion->query($sql);
 
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     {
         echo " <script>   
             alert('... usuario Actualizado Correctamente ... ');
-            location.href='usuarioQA.php';
+            location.href='usuario.php';
             </script>";
     }
     else
@@ -89,31 +89,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
 
 
-        <fieldset>
 
-            <legend>Tipo de usuario:</legend>
-            <table>
-                <tr>
-                    <div>
-                        <td><input type="radio" id="huey" name="tipo" value="cliente" <?php if( $fila['id_rol']=="cliente"){?> checked <?php } ?>></td>
-                        <td><label for="huey">Cliente</label></td>
-                    </div>
-                </tr>
-                <tr>
-                    <div>
-                        <td><input type="radio" id="dewey" name="tipo" value="tecnico" <?php if( $fila['id_rol']=="tecnico"){?> checked <?php } ?>></td>
-                        <td><label for="dewey">Técnico</label></td>
-                    </div>
-                </tr>
-                <tr>
-                    <div>
-                        <td><input type="radio" id="louie" name="tipo" value="administrador" <?php if( $fila['id_rol']=="admin"){?> checked <?php } ?>></td>
-                        <td><label for="louie">Administrador</label></td>
-                    </div>
-                </tr>
-
-            </table>
-        </fieldset>
 
         <input type="submit" value="Enviar" onclick="validarEmail()">
 

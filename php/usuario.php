@@ -1,11 +1,11 @@
 <?php
 
 include_once("conexion.php");
+$sql = "select * from usuarios";
 
+$ejecucion_sql = $conexion->query($sql);
+$rol=0;
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,14 +26,7 @@ include_once("conexion.php");
             <li><a href="https://engranedigital.com/guias-engrane/index.html" class="cabe">Guias</a></li>
             <li><a href="https://engranedigital.com/nosotros/index.html" class="cabe">Nosotros</a></li>
             <li><a href="https://engranedigital.com/contacto/index.html" class="cabe">Contacto</a></li>
-            <li>
-                <a href="#" class="cabe">Más</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Opción 1</a></li>
-                    <li><a href="#">Opción 2</a></li>
-                    <li><a href="#">Opción 3</a></li>
-                </ul>
-            </li>
+        
         </ul>
     </div>
 
@@ -43,35 +36,34 @@ include_once("conexion.php");
     <tr>
       <th>ID</th>
       <th>Nombre</th>
-      <th>Pass</th>
       <th>Email</th>
       <th>Tipo</th>
-      <th>Proyecto</th>
+      
+      <th colspan="2">Acciones</th>
     </tr>
-    <!-- <tr>
-      <td>10</td>
-      <td>Juan</td>
-      <td>1234</td>
-      <td>test@gmail.com</td>
-      <td>cliente</td>
-      <td>Test</td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>Diego</td>
-      <td>1234</td>
-      <td>test@gmail.com</td>
-      <td>Técnico</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td>Saul</td>
-      <td>1234</td>
-      <td>test@gmail.com</td>
-      <td>Administrador</td>
-      <td></td>
-      </tr> -->
+        <?php while ($fila = $ejecucion_sql->fetch_assoc()) { ?>
+            <tr>
+                <td><?php echo $fila['id']; ?></td>
+                <td><?php echo $fila['nombre']; ?></td>
+
+                <td><?php echo $fila['email']; ?></td>
+                <td><?php switch( $fila['id_rol']){
+                    case 1:
+                        echo "Admin";
+                        break;
+                        case 2:
+                            echo "Cliente";
+                            break;
+                            case 3:
+                                echo "Tecnico";
+                                break;
+                } ?></td>
+
+                <td><a href='actualizar.php?id=<?php echo $fila['id']; ?>'>ACTUALIZAR</a></td>
+                <td><a href='eliminarUsuario.php?id=<?php echo $fila['id']; ?>'>ELIMINAR</a></td>
+
+            </tr>
+        <?php } ?>
   </table>
 </div>
 
