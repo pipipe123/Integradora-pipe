@@ -1,91 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/* Generales de santa ursula */
 
 * {
     font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-  }
-  
-  body {
-      color: rgb(15, 15, 15);
-      background-image: url(https://engranedigital.com/wp-content/uploads/2019/01/Engrane_digital_fondo.jpg);
-      margin: 0;
-      background-repeat: no-repeat;
-      background-size: cover;
-  }
-  
-  h1 {
-      color: #f8f6f6;
-      text-align: center;
-  }
-  
-  .content {
-      width: 90%;
-      max-width: 400px;
-      margin: 0 auto;
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  form {
-      display: flex;
-      flex-direction: column;
-  }
-  
-  label {
-      display: block;
-      margin-bottom: 10px;
-  }
-  
-  input[type="button"],
-  input[type="text"],
-  input[type="password"],
-  input[type="email"],
-  input[type="submit"],
-  input[type="radio"],
-  input[type="checkbox"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      margin-bottom: 10px;
-      box-sizing: border-box;
-  }
-  
-  input[type="button"] {
-      background-color: #070707;
-      color: white;
-      cursor: pointer;
-  }
-  
-  input[type="button"]:hover {
-      background-color: #070707;
-  }
-  
-  input[type="submit"] {
-      background-color: #070707;
-      color: white;
-      cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-      background-color: #070707;
-  }
-  
-  input[type="checkbox"] {
-      display: inline-block;
-      margin-bottom: 0;
-  }
-  
-  a {
-      display: block;
-      text-align: center;
-      margin-top: 10px;
-  }
-  
+  font-size: 1rem;
+}
 
-/* Estilos para el encabezado */
+body{
+    color: aliceblue;
+    background-image: url(https://engranedigital.com/wp-content/uploads/2019/01/Engrane_digital_fondo.jpg);
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Estilos para el encabezado */
 .header {
     display: flex;
     justify-content: space-between;
@@ -241,5 +171,76 @@ display: block;
 }
 }
 
+/* Estilos para el contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+    align-items: center; /* Centrar verticalmente el contenido */
+}
+.left-column {
+    flex: 1; /* La columna ocupará el espacio disponible */
+    padding: 30px; /* Añadimos un poco de espacio alrededor del texto */
+     /* Color de fondo de la columna izquierda */
+}
 
+h1 {
+    font-size: 35px;
+}
 
+h2{
+  font-size: 22px;
+}
+
+        /* Estilos para la columna derecha con la imagen */
+        .right-column {
+          flex: 1; /* La columna ocupará el espacio disponible */
+          padding: 20px; /* Añadimos un poco de espacio alrededor de la imagen */
+      }
+
+      /* Estilos para la imagen */
+      .right-column img {
+          max-width: 100%; /* La imagen no superará el ancho de su contenedor */
+          height: auto; /* Mantenemos la proporción de la imagen */
+      }
+
+      .buttons-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+     /* Estilos para pantallas pequeñas */
+     @media screen and (max-width: 768px) {
+      .container {
+          flex-direction: column;
+      }
+      .left-column,
+      .right-column {
+          flex: none;
+          width: 100%;
+      }
+  }
+
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 40px;
+        border: 2px solid #007BFF; /* Color del borde del botón */
+        border-radius: 4px;
+        background-color: #007BFF; /* Color de fondo del botón */
+        color: #FFFFFF; /* Color del texto del botón */
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s;
+        font-size: 16px;
+    }
+
+    /* Estilos para el efecto hover (al pasar el mouse) */
+.button:hover {
+  background-color: #FFFFFF; /* Color de fondo del botón en hover */
+  color: #007BFF; /* Color del texto del botón en hover */
+}

@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-/* Generales de santa ursula */
 
-* {
-    font-family: 'Roboto', sans-serif;
+*{
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
 }
 
@@ -12,117 +11,15 @@ body{
     margin: 0;
     background-repeat: no-repeat;
     background-size: cover;
-  }
-  
-  header {
-    width: auto;
-    height: 9rem;
-    line-height: 9rem;
-  }
-  
-  header h1 {
-    text-align: center;
-    margin: 0 auto;
-    font-size: 2rem;
-    margin-top: -3rem;
-  }
-  
-  
-  .content {
-    display: block;
-    margin: 0 auto;
-    width: 90%;
-    max-width: 60rem;
-    height: 100vh;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.37);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(2px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    padding: 2rem;
-    margin-top: 1.8rem;
-  }
-  
-  
-  .usuario {
-    position: absolute;
-    display: block;
-    top: 0;
-    width: 9rem;
-    left: 0;
-    line-height: 9rem;
-    cursor: pointer;
-  }
-  
-  .usuario img {
-    position: absolute;
-    width: 5rem;
-    height: 5rem;
-    margin: 0 0;
-    left: 65rem;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.37);
-    box-shadow: 0 8px 32px 0 rgba(5, 1, 29, 0.644);
-    backdrop-filter: blur(2px);
-    border: 2px solid rgba(255, 255, 255, 0.18);
+    padding: 0;
   }
 
-  .usuario :hover{
-    background-color: #333;
-  }
-
-  .usuario :active{
-    background-color: rgb(8, 8, 8);
-  }
-
-
-  form{
-    transition: transform 0.3s;
-    transform-style: preserve-3d;
-    float: left;
-    margin-left: 4.6rem;
-}
-
-  form:hover {
-  transform: translate3d(0, -10px, 0);
-}
-
-  form:active{
-    transition: transform 0.3s;
-    transform-style: preserve-3d;
-}
-  
-  .content-box{
-    max-width: 5rem;
-    padding: .7rem;
-    border-radius: 10px;
-    background: rgba(36, 36, 36, 0.15);
-    box-shadow: 0 8px 32px 0 rgba(0, 17, 255, 0.37);
-    backdrop-filter: blur(2px);
-    cursor: pointer;
-  }
-
-  .content-box img{
-    width: 5rem;
-    height: 5rem;
-    border-radius: .6rem;
-  }
-
-  .content-box a{
-    text-decoration: none;
-    color: azure;
-  }
-
-  .content-box:active{
-    background-color: #333;
-  }
-
-
-/* Estilos para el encabezado */
-.header {
+  /* Estilos para el encabezado */
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
     transition: all 0.3s ease;
   }
 
@@ -131,11 +28,10 @@ body{
     height: 100px;
 }
 
+
   .header img{
     height: auto;
-    max-width: 20%;
-    margin-left: 10rem;
-    margin-top: 1rem;
+    max-width: 35%;
   }
   /* Estilos para el menú */
   
@@ -147,7 +43,6 @@ body{
     margin: 0;
     padding: 0;
     transition: all 0.3s ease;
-    margin-right: 5rem;
   }
 
   .cabe{
@@ -275,36 +170,119 @@ display: block;
 }
 }
 
-#tickets-table {
-  border-collapse: collapse;
-  width: 100%;
-  cursor: pointer;
+ 
+/* Estilos para el contenedor principal */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid #3498db;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
 }
 
-#tickets-table th, #tickets-table td {
-  padding: 15px;
+/* Estilos para la columna izquierda */
+.left-column {
+    flex: 1;
+    text-align: left;
 }
 
-#tickets-table th {
-  background-color: #5b509c;
-  color: #fff;
-
+/* Estilos para la columna derecha */
+.right-column {
+    flex: 1;
+    text-align: right;
 }
 
-#tickets-table td {
-  background-color: rgb(255, 255, 255)
-  
+/* Estilos para el encabezado h1 */
+h1 {
+    color: #fdfbfb;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-#tickets-table tr:nth-child(even) td {
+/* Estilos para el subtítulo h2 */
+h2 {
+    color: #8ad0eb;
+    font-size: 33px;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Estilos para la imagen */
+img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los cuadros */
+.box {
   background-color: #ffffff;
-}
-
-.content table{
-  margin-top: 10rem;
-  color: #111111;
+  padding: 20px;
+  border: 2px solid #3498db;
   border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
+  box-shadow: 0px 0px 30px rgba(200, 196, 219, .3);
+  flex: 1;
+  min-width: 280px; 
 }
 
+.containers{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Espacio entre los cuadros */
+  max-width: 1200px; /* Limita el ancho máximo */
+  margin: 0 auto;
+  text-align: center;
+    
+}
+
+p{
+    color: #0f0f0f;
+    font-size: 18px;
+            margin-bottom: 20px;
+}
+
+.more-info {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.small-image {
+    position: absolute;
+    top: 100%;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+ /* Media query para ajustar el diseño en pantallas más pequeñas */
+ @media only screen and (max-width: 600px) {
+  .container {
+      width: 90%;
+  }
+
+  .box {
+      margin: 2% auto;
+      flex-basis: calc(50% - 20px);
+  }
+  
+  .containers {
+    max-width: 100%; /* El contenedor ocupará todo el ancho de la pantalla en pantallas pequeñas */
+    padding: 10px; /* Añadir un poco de espacio en los bordes */
+}
+
+
+}
