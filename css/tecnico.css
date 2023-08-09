@@ -99,7 +99,7 @@ body{
     background: rgba(36, 36, 36, 0.15);
     box-shadow: 0 8px 32px 0 rgba(0, 17, 255, 0.37);
     backdrop-filter: blur(2px);
-    cursor: pointer;
+    
   }
 
   .content-box img{
@@ -308,3 +308,17 @@ display: block;
   text-align: center;
 }
 
+input{
+  padding: 0;
+  background: rgba(255, 255, 255, 0.37);
+   border: 0;
+   cursor: pointer;
+   text-align: center;
+}
+input:hover{
+  background: rgba(255, 255, 255, 0.712);
+}
+
+img{
+  width: 100%;
+}

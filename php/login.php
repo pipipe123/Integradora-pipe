@@ -1,11 +1,11 @@
 <?php 
-
+$entrar="";
 //AQUI ENTRA DESPUES DE PRESIONAR EL BOTON DE SUBMIT
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
      include_once("conexion.php");
     
     session_start();
-     
+    
      $us=$_POST['nombre'];
      $ps=$_POST['pass'];
      // echo $us." ".$ps;
@@ -27,29 +27,30 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             # code...
             // print("tipo".$fila["tipo"]);
             
+           
             $id_usuario = $fila["id"];
-            print("ESTA ES LA SESIon $id_usuario");
             $tipo =$fila["id_rol"]; //fila es lo que trae los resultados de el renglon asociado [tipo] es lo que estaba buscando
             $_SESSION["id_usuario"]=$id_usuario;
            
         }
         switch ($tipo) {
             case '2':
-                header("location:cliente.php");
+                $entrar="acceso";
+                
                 break;
                 
             case '3':
-                header("location:../html/tecnico.html");
+                $entrar="acceso1";
+
                 break;
                     
             case '1':
-                header("location:admin.php");
+                $entrar="acceso2";
+
                 break;
         }
     }else{
-       echo "<script>
-            alert('no se pudo iniciar la sesion, por favor intentelo de nuevo mas tarde');
-       </script>";
+       
     }
     
     //   if($sql){
@@ -109,3 +110,4 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 </body>
 </html>
 
+<?php include_once("alertas.php"); ?>

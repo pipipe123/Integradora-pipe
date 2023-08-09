@@ -9,4 +9,16 @@ if ($entrar == "acceso"){?>
 
 <?php
 }
+if ($entrar == "acceso1"){?>
+
+    <script> acceso1() </script>
+
+<?php
+}
+if ($entrar == "acceso2"){?>
+
+    <script> acceso2() </script>
+
+<?php
+}
 ?>
