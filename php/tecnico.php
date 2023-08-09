@@ -1,3 +1,15 @@
+<?php
+include_once('conexion.php');
+$sql = "select * from tickets";
+
+$ejecucion_sql = $conexion->query($sql);
+
+// obtener el numero de registros
+$num_filas = $ejecucion_sql->num_rows;
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,37 +81,23 @@
 
         <table id="tickets-table">
             <tr>
-              <th>Número de Ticket</th>
-              <th>Cliente</th>
+              <th>Folio</th>
+              <th>Fecha</th>
               <th>Asunto</th>
-              <th>Área</th>
+              <th>proyecto</th>
               <th>Prioridad</th>
               <th>Estatus</th>
             </tr>
+            <?php while ($fila = $ejecucion_sql->fetch_assoc()) { ?>
             <tr>
-              <td>001</td>
-              <td>Cliente A</td>
-              <td>Asunto 1</td>
-              <td>Área 1</td>
-              <td>Alta</td>
-              <td>En proceso</td>
+                <td><?php echo $fila['folio']; ?></td>
+                <td><?php echo $fila['fecha']; ?></td>
+                <td><?php echo $fila['descripcion']; ?></td>
+                <td><?php echo $fila['proyecto']; ?></td>
+                <td><?php  ?>-</td>
+                <td><?php echo $fila['estado']; ?></td>
             </tr>
-            <tr>
-              <td>002</td>
-              <td>Cliente B</td>
-              <td>Asunto 2</td>
-              <td>Área 2</td>
-              <td>Baja</td>
-              <td>Asignado</td>
-            </tr>
-            <tr>
-                <td>003</td>
-                <td>Cliente C</td>
-                <td>Asunto 4</td>
-                <td>Área 3</td>
-                <td>Baja</td>
-                <td>Finalizado</td>
-              </tr>
+        <?php } ?>
           </table>
 
     </div>
