@@ -49,7 +49,7 @@
     <textarea name="des" id="des" cols="100" rows="10" maxlength="500" placeholder="Describa su problema"></textarea>
     <br>
     <label  for="imagen" class="adjuntar-imagen">Adjuntar imagen:</label>
-        <input type="file" id="imagen" name="Imagen" class="input-imagen"><br>
+        <input type="file" id="imagen" name="Imagen" class="input-imagen" require><br>
     <input type="button" id="enviar" value="Enviar comentario">
 </form>
 </div>
@@ -62,6 +62,7 @@
             function hola(){
                 let des = (document.getElementById("des")).value;
                 let proyecto = (document.getElementById("proyecto")).value;
+                let imagen = (document.getElementById("imagen")).value;
                 if(des==""){
                     alert("Ingrese una descripcion")
                     return;
@@ -70,6 +71,10 @@
                     alert("Defina el proyecto")
                     return;
                 }//para enviar el formulario
+                if(imagen==""){
+                    alert("Profavor Inserte una imagen")
+                    return;
+                }
                 (document.getElementById("formulario")).submit()
                 
             }
