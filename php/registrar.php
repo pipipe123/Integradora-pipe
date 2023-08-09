@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     }
 
     // Llamar a la función inicialmente para mostrar u ocultar el campo de proyecto correctamente
-    mostrarCampoProyecto();
+
 </script>
 
 </body>

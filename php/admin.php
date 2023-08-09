@@ -2,6 +2,34 @@
 include_once("valida_sesion.php");
 ?>
 
+<?php
+ if ($_SERVER["REQUEST_METHOD"]=="POST"){
+    $folio=$_POST['folio'];
+    echo $folio; 
+
+    $id_tecnico=$_POST['id_tecnico'];
+    echo $id_tecnico;
+
+    $asignarTecnico="UPDATE tickets SET id_tecnico = $id_tecnico where folio = $folio;";
+
+    $asignar=$conexion->query($asignarTecnico);
+
+    if($asignar)  {
+        echo " <script>   
+                alert('... Empleado Actualizado Correctamente ... ');
+                </script>";
+    }
+    else
+    {
+        echo " <script>   
+                alert('... No fue posible actualizar al empleado, verifique por favor... ');
+            </script>";
+    }
+ }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,8 +80,8 @@ include_once("valida_sesion.php");
     include_once("conexion.php");
     
     $resultado = mysqli_query($conexion, "SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket;");
-
     while ($comentario = mysqli_fetch_object($resultado)) {
+        $tecnicos =mysqli_query($conexion, "SELECT nombre, id FROM usuarios WHERE id_rol = '3';");
     
         
         // $query="select * from usuarios where id = '$id_user'";
@@ -68,9 +96,27 @@ include_once("valida_sesion.php");
             <th><?php echo($comentario->des);?></th>
             <th><?php echo($comentario->estado);?></th>
             <th name="folio"><?php echo($comentario->proyecto);?></th>
-            <th><?php echo($comentario->des);?></th>
+            <th><form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                <select name="tecnicos" id="">
+
+                    <?php if($resultado->num_rows > 0){
+
+                        while ($fila = $tecnicos->fetch_assoc()){ ?>
+
+                        <option name="id_tecnico"value="<?php echo $fila['id'] ?>" selected><?php echo $fila['nombre']; ?></option>
+
+                    <?php } ?>
+
+                <?php } ?>
+            </select> 
+
+            <input type="hidden" name="folio" value="<?php echo($comentario->folio);?>">
+            <input type="submit" value="asignar">
+            </form></th>  
+   
+
             <th name="folio"> <img src="data:image/jpg;base64,<?php echo base64_encode($comentario->imagen);?>" alt=""></th>
-            <th><input type="button" value="Mostrar mas"></th>
+            <th><input type="button" value="Mostrar mas" ></th>
             <th><a href="eliminar.php?id=<?php echo($comentario->folio); ?>">Eliminar</a></th>
 
 
