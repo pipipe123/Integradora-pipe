@@ -90,4 +90,4 @@ function generalsi(accion,tipo,lugar){
   })
 }
 
-// 
+// aaaaaaaaaaaaaa
