@@ -22,3 +22,12 @@ if ($entrar == "acceso2"){?>
 <?php
 }
 ?>
+<?php
+
+if ($entrar == "no"){?>
+
+<script> denegado() </script>
+
+<?php
+}
+?>
