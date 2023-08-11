@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         switch ($tipo) {
             case '2':
                 $entrar="acceso";
-                
+
                 break;
                 
             case '3':
