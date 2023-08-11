@@ -17,24 +17,31 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
     $nombre=$_POST['nombre'];
     $email=$_POST['email'];
-    $tipo=$_POST['id_rol'];
-    $proyecto=$_POST['proyecto'];
+    // $tipo=$_POST['id_rol'];
+    // $proyecto=$_POST['proyecto'];
 
     $sql="update usuarios set nombre='$nombre', email='$email' where id=$id ";
     print($sql);
     $ejecutar_sql=$conexion->query($sql);
-
+    echo "   
+    
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11.7.16/dist/sweetalert2.all.min.js'></script>
+    <script src='../js/alertas.js'></script>
+    <script>
+    var accion = 'actualizar';
+    var tipo = 'usuario';
+    var lugar = 'usuario.php';
+</script>";
     if ($ejecutar_sql)
     {
         echo " <script>   
-            alert('... usuario Actualizado Correctamente ... ');
-            location.href='usuario.php';
+            generalsi(accion,tipo,lugar)
             </script>";
     }
     else
     {
         echo " <script>   
-            alert('... No fue posible actualizar al usuario, verifique por favor... ');
+            generalno(accion,tipo)
             </script>";
     }
 }
@@ -48,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/registro.css">
+
     <title>registro</title>
 
 </head>

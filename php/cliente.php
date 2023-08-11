@@ -53,8 +53,10 @@
     <input type="button" id="enviar" value="Enviar comentario">
 </form>
 </div>
-    
-<script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.16/dist/sweetalert2.all.min.js"></script>
+<script src="../js/alertas.js"></script>
+<script >
             // es para verificar que los input no esten vacios
             let enviar = document.getElementById("enviar");
             
@@ -63,21 +65,26 @@
                 let des = (document.getElementById("des")).value;
                 let proyecto = (document.getElementById("proyecto")).value;
                 let imagen = (document.getElementById("imagen")).value;
+                let quefalta = "";
+                
                 if(des==""){
-                    alert("Ingrese una descripcion")
+                    descnt()
+                    
                     return;
                 }
                 if(proyecto==""){
-                    alert("Defina el proyecto")
+                    proyectont()
+                    
                     return;
                 }//para enviar el formulario
                 if(imagen==""){
-                    alert("Profavor Inserte una imagen")
+                    imgnt()
+
                     return;
                 }
                 (document.getElementById("formulario")).submit()
-                
             }
+
         </script>
 </body>
 </html>

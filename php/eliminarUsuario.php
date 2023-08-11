@@ -23,7 +23,7 @@
    }
 
    echo "<script>
-            location.href='usuarios.php';
+            location.href='usuario.php';
         </script>";
 
 
