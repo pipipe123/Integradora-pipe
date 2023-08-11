@@ -18,29 +18,24 @@ include_once("conexion.php");
         $sql="update usuarios set nombre='$nombre', email='$email', pass=md5('$pass') where id = '$id_usuario'";
 
         $ejecutar_sql=$conexion->query($sql);
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11.7.16/dist/sweetalert2.all.min.js'></script>
-        <script src='../js/alertas.js'></script>
+        echo "
         <script>
         var accion = 'actualizado';
         var tipo = 'usuario';
-        var lugar = 'usuario.php';
+        var lugar = 'cliente.php';
      </script>";
         if ($ejecutar_sql)
         {
-            echo " <script>   
-                    alert('... Empleado Actualizado Correctamente ... ');
-                    </script>";
+            echo " <script src='../js/alertas.js'>   
+                generalsi(accion,tipo,lugar)
+                    </script> ";
         }
         else
         {
             echo " <script>   
-                    alert('... No fue posible actualizar al empleado, verifique por favor... ');
+            generalno(accion,tipo)
                 </script>";
         }
-
-        echo "<script>
-                    location.href='actualizarCliente.php';
-                </script>";
 
 
 
@@ -54,6 +49,8 @@ include_once("conexion.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo.png" type="image/png">
     <link rel="stylesheet" href="../css/admin.css">
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11.7.16/dist/sweetalert2.all.min.js'></script>
+    <script src='../js/alertas.js'></script>
     <title>▷ Engrane Digital: Usuarios</title>
 </head>
 
