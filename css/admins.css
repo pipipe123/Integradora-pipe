@@ -33,7 +33,6 @@ body{
     margin: 0 auto;
     width: 90%;
     max-width: 75rem;
-    height: 100vh;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.37);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -410,3 +409,125 @@ h5{
 }
 
 a:link, a:visited { text-decoration: none; }
+
+/* Tabla admin */
+
+#tickets-table1 {
+  border-collapse: collapse;
+  width: 95%;
+  cursor: pointer;
+  color: #111111;
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+
+}
+
+#tickets-table1 th, #tickets-table td {
+  padding: 15px;
+}
+
+#tickets-table1 th {
+  background-color: #5b509c;
+  color: #ffffff;
+
+}
+
+#tickets-table1 a {
+  
+  color: #000000;
+
+}
+
+#tickets-table1 td {
+  background-color: rgb(255, 255, 255)
+}
+
+#tickets-table1 tr:nth-child(even) td {
+  background-color: #ffffff;
+}
+
+#tickets-table1 tbody th{
+  background-color: rgb(255, 255, 255);
+  color:#111111;
+}
+
+/*Glass*/
+
+.content1 {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 100%;
+  max-height: 100%;
+
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+  margin-top: 1.8rem;
+}
+
+button {
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: rgb(100, 61, 136);
+  border: .25em solid var(--glow-color);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em .25em var(--glow-color),
+         0 0 4em 1em var(--glow-spread-color),
+         inset 0 0 .75em .25em var(--glow-color);
+  text-shadow: 0 0 .5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+  margin-top: 2rem;
+ }
+ 
+ button::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: .7;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+ }
+ 
+ button:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em .25em var(--glow-color),
+         0 0 4em 2em var(--glow-spread-color),
+         inset 0 0 .75em .25em var(--glow-color);
+ }
+ 
+ button:active {
+  box-shadow: 0 0 0.6em .25em var(--glow-color),
+         0 0 2.5em 2em var(--glow-spread-color),
+         inset 0 0 .5em .25em var(--glow-color);
+}
+
+button a{
+  color: #f9f9f9;
+}
+
+button a:active {
+  box-shadow: 0 0 0.6em .25em var(--glow-color),
+         0 0 2.5em 2em var(--glow-spread-color),
+         inset 0 0 .5em .25em var(--glow-color);
+}
+
+ 

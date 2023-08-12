@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+}
+
+body{
+  color: aliceblue;
+  background-image: url(https://engranedigital.com/wp-content/uploads/2019/01/Engrane_digital_fondo.jpg);
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+        /* Estilos para el encabezado */
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          
+          transition: all 0.3s ease;
+        }
+
+        .logo {
+          width: 350px;
+          height: 100px;
+      }
+
+
+        .header img{
+          height: auto;
+          max-width: 35%;
+        }
+        /* Estilos para el menú */
+        
+        .menu {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          transition: all 0.3s ease;
+        }
+
+        .cabe{
+          padding: 3rem 4rem 1rem 4rem;
+        }
+
+        .cabe:hover{
+          animation: cabes 1s both;
+        }
+
+        @keyframes cabes {
+          0%{
+            padding-top: 5rem;
+            padding: 3rem 4rem 2rem 4rem;
+          }
+          50%{
+            padding-top: 5rem;
+            padding: 3rem 4rem 3rem 4rem;
+          }
+          100%{
+            padding-top: 5rem;
+            padding: 3rem 4rem 3.2rem 4rem;
+          }
+          
+        }
+
+        .menu li {
+          margin-left: 20px;
+        }
+
+        .menu a {
+          color: #fff;
+          text-decoration: none;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        .menu li a:hover{
+          text-decoration: none;
+          color: white;
+          font-weight: bold;
+          background-color: rgba(0, 233, 225, 1);
+      }
+
+       div{
+        display: block;
+       }
+
+       .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    
+    .dropdown-menu li {
+        display: block;
+    }
+
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+  }
+
+
+   /* Estilos para el menú responsivo */
+   @media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 0;
+    }
+
+    .menu li {
+        margin: 5px 0;
+    }
+
+    .menu-toggle {
+      display: block;
+      order: -1;
+      cursor: pointer;
+      padding: 5px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      transition: all 0.3s ease;
+  }
+
+  .menu-toggle.active {
+      background-color: transparent;
+  }
+
+  .menu-toggle.active span {
+      background-color: #fff;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    margin-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu.active {
+    display: block;
+  }
+}
+
+
+.content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.content input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.content input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.content input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.content a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.content a:hover {
+    text-decoration: underline;
+}
+
+/*estilos al enlace "Atrás" */
+.back-link {
+    display: inline-block;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.back-link:hover {
+    color: #0056b3;
+}
+
+ /* Estilos para los títulos */
+ .title {
+    color: rgb(17, 17, 17);
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 18px;
+  
+    color: #65b6f8;
+    margin-bottom: 40px;
+}
+
+ /*  división de la pagina */
+ .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 250px; 
+}
+
+.image {
+    flex: 1;
+    padding: 20px;
+    margin-left: 80px; /* Ajusta el margen izquierdo para mover la imagen a la derecha */
+}

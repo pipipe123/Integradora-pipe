@@ -9,7 +9,7 @@ include_once("valida_sesion.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>▷ Engrane Digital: Usuarios</title>
     <link rel="icon" href="img/logo.png" type="image/png">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/admins.css">
 </head>
 <body>
     <div class="header">
@@ -31,7 +31,9 @@ include_once("valida_sesion.php");
             </li>
         </ul>
     </div>
-<table border="2px">
+
+    <div class="content1">
+<table align="center" id="tickets-table1">
     <thead>
         <tr>
             <th>Nombre</th>
@@ -70,7 +72,7 @@ include_once("valida_sesion.php");
             <th name="folio"><?php echo($comentario->proyecto);?></th>
             <th><?php echo($comentario->des);?></th>
             <th name="folio"> <img src="data:image/jpg;base64,<?php echo base64_encode($comentario->imagen);?>" alt=""></th>
-            <th><input type="button" value="Mostrar mas"></th>
+            
             <th><a href="eliminar.php?id=<?php echo($comentario->folio); ?>">Eliminar</a></th>
 
 
@@ -81,12 +83,11 @@ include_once("valida_sesion.php");
 
     ?>
 </table>
-    
-<button class="ui-btn">
-    <span>
-    <a href="../php/usuario.php">USUARIOS</a>
-    </span>
+</div>
+<div align="center">
+<button> <a href="../php/usuario.php">USUARIOS</a>
 </button>
+</div>
 
 </body>
 </html>

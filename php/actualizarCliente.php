@@ -47,11 +47,11 @@ include_once("conexion.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/logo.png" type="image/png">
-    <title>▷ Engrane Digital: Usuarios</title>
+    <title>Actualizacion</title>
+    <link rel="stylesheet" href="../css/actualiza.css">
 </head>
 <body>
-    <div class="header">
+<div class="header">
         <a href="https://engranedigital.com/">
             <img src="https://engranedigital.com/wp-content/uploads/2018/09/Engrane_digital_logo_2.png" alt="Engranito" width="350px" height="100px">
         </a>
@@ -70,22 +70,33 @@ include_once("conexion.php");
             </li>
         </ul>
     </div>
-<div class="content">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 
 
-        
 
-        <input type="text" placeholder="Nombre" id="nombre" name="nombre" value="<?php echo $fila['nombre']  ?>">
-        <input type="email" placeholder="Email" id="email" name="email" value="<?php echo $fila['email']  ?>">
-        
-
-        <input type="submit" value="Enviar">
-
-
-    </form>
-    <a href="cliente.php">Atrás</a>
+    <div class="container">
+    <div class="content">
+        <h1 class="title">Mi cuenta</h1>
+        <h2 class="subtitle">Si deseas realizar un cambio a tu cuenta ya establecida, ¡Aquí puedes realizarlo! Solo ingresa los nuevos datos de tu preferencia en el formulario.</h2>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+            <input type="text" placeholder="Nombre" id="nombre" name="nombre" value="<?php echo $fila['nombre'] ?>">
+            <input type="email" placeholder="Email" id="email" name="email" value="<?php echo $fila['email'] ?>">
+            <input type="password" placeholder="Contraseña" id="pass" name="pass" value="<?php echo $fila['pass'] ?>">
+            <input type="submit" value="Actualizar">
+        </form>
+        <a class="back-link" href="cliente.php">Atrás</a>
+    </div>
+    <div class="image">
+        <!-- Agrega aquí tu imagen -->
+        <img src="../img/actua.png" height="300px" width="300px">
+    </div>
 </div>
+
+
+
+
+
+
+
     
 </body>
 </html>
