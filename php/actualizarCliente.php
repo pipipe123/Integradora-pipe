@@ -13,32 +13,31 @@ include_once("conexion.php");
             //actualizar un registro de la BD
         $nombre=$_POST['nombre'];
         $email=$_POST['email'];
-        $pass=$_POST['pass'];
+        
 
-        $sql="update usuarios set nombre='$nombre', email='$email', pass=md5('$pass') where id = '$id_usuario'";
+        $sql="update usuarios set nombre='$nombre', email='$email'  where id = '$id_usuario'";
 
         $ejecutar_sql=$conexion->query($sql);
         echo "
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11.7.16/dist/sweetalert2.all.min.js'></script>
+        <script src='../js/alertas.js'></script>
         <script>
-        var accion = 'actualizado';
-        var tipo = 'usuario';
-        var lugar = 'cliente.php';
-     </script>";
-        if ($ejecutar_sql)
-        {
-            echo " <script src='../js/alertas.js'>   
+            var accion = 'actualizar';
+            var tipo = 'usuario';
+            var lugar = 'cliente.php';
+            </script>";
+            if ($ejecutar_sql)
+            {
+            echo " <script>   
                 generalsi(accion,tipo,lugar)
-                    </script> ";
+                </script>";
         }
         else
         {
             echo " <script>   
-            generalno(accion,tipo)
+                generalno(accion,tipo)
                 </script>";
         }
-
-
-
   }
 ?>
 
@@ -46,14 +45,11 @@ include_once("conexion.php");
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo.png" type="image/png">
-    <link rel="stylesheet" href="../css/admin.css">
-    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11.7.16/dist/sweetalert2.all.min.js'></script>
-    <script src='../js/alertas.js'></script>
     <title>▷ Engrane Digital: Usuarios</title>
 </head>
-
 <body>
     <div class="header">
         <a href="https://engranedigital.com/">
@@ -82,7 +78,6 @@ include_once("conexion.php");
 
         <input type="text" placeholder="Nombre" id="nombre" name="nombre" value="<?php echo $fila['nombre']  ?>">
         <input type="email" placeholder="Email" id="email" name="email" value="<?php echo $fila['email']  ?>">
-        <input type="password" placeholder="Contraseña" id="pass" name="pass" value="<?php echo $fila['pass']  ?>">
         
 
         <input type="submit" value="Enviar">

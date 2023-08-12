@@ -14,25 +14,29 @@ $validacion = mysqli_query($conexion, $validar);
 if ($validacion->num_rows > 0) {
         $ejecutar_sql=$conexion->query($sql);
         if($ejecutar_sql){
-                echo " <script>   
-                alert('...  usuario $tipo agregado correctamente... ');
-                location.href='login.php';
-             </script>";
-             
+         echo "   
     
-            }   else
-            {
-            echo " <script>   
-                     alert('... No fue posible agregar al usuario $rol  verifique por favor... ');
-                     location.href='registrar.php';
-                  </script>";
-            }
-}else
-{
-echo " <script>   
-         alert('... No fue posible agregar al usuario $rol  verifique por favor... ');
-         location.href='registrar.php';
-      </script>";
+         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11.7.16/dist/sweetalert2.all.min.js'></script>
+         <script src='../js/alertas.js'></script>
+         <script>
+         var accion = 'actualizar';
+         var tipo = 'usuario';
+         var lugar = 'usuario.php';
+     </script>";
+         if ($ejecutar_sql)
+         {
+             echo " <script>   
+                 generalsi(accion,tipo,lugar)
+                 </script>";
+         }
+         else
+         {
+             echo " <script>   
+                 generalno(accion,tipo)
+                 </script>";
+         }
+   } 
+
 }
 
 

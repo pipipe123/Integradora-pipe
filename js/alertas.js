@@ -91,3 +91,9 @@ function generalsi(accion,tipo,lugar){
 }
 
 // aaaaaaaaaaaaaa
+
+
+
+
+let frutas = ['manzana','naranja','pera'];
+console.log(frutas[0]);
