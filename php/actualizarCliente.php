@@ -18,23 +18,24 @@ include_once("conexion.php");
         $sql="update usuarios set nombre='$nombre', email='$email', pass=md5('$pass') where id = '$id_usuario'";
 
         $ejecutar_sql=$conexion->query($sql);
-
+        echo "
+        <script>
+        var accion = 'actualizado';
+        var tipo = 'usuario';
+        var lugar = 'cliente.php';
+     </script>";
         if ($ejecutar_sql)
         {
-            echo " <script>   
-                    alert('... Empleado Actualizado Correctamente ... ');
-                    </script>";
+            echo " <script src='../js/alertas.js'>   
+                generalsi(accion,tipo,lugar)
+                    </script> ";
         }
         else
         {
             echo " <script>   
-                    alert('... No fue posible actualizar al empleado, verifique por favor... ');
+            generalno(accion,tipo)
                 </script>";
         }
-
-        echo "<script>
-                    location.href='actualizarCliente.php';
-                </script>";
 
 
 
@@ -49,6 +50,7 @@ include_once("conexion.php");
     <title>Actualizacion</title>
     <link rel="stylesheet" href="../css/actualiza.css">
 </head>
+
 <body>
 <div class="header">
         <a href="https://engranedigital.com/">

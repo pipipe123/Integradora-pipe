@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>▷ Engrane Digital: Usuarios</title>
     <link rel="icon" href="img/logo.png" type="image/png">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/admins.css">
 </head>
 <body>
     <div class="header">
