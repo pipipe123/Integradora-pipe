@@ -144,6 +144,7 @@ if ($busqueda == "cancelado") {
     ?>
 </table>
 
+  <center><a href="cerrar_sesion.php">cerrar sesion</a></center>
     </div>
 </body>
 </html>

@@ -50,6 +50,7 @@
         <!-- Agrega aquí tu imagen -->
         <img src="../img/actua.png" height="300px" width="300px">
     </div>
+    <center><a href="cliente.php">atras</a></center>
 </div>
 
 
