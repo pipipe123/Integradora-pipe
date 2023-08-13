@@ -15,7 +15,7 @@ function acceso1() {
         position: 'center',
         icon: 'success',
         title: '! ! ! B I E N V E N I D O ! ! !',
-        text: 'Tus contactos estaran en breve',
+        text: 'Un gusto tenerte devuelta',
         showConfirmButton: true,
         timer: 2000
       }).then(function(){
@@ -27,7 +27,7 @@ function acceso2() {
         position: 'center',
         icon: 'success',
         title: '! ! ! B I E N V E N I D O ! ! !',
-        text: 'Tus contactos estaran en breve',
+        text: 'Un gusto tenerte devuelta',
         showConfirmButton: true,
         timer: 2000
       }).then(function(){
@@ -87,5 +87,44 @@ function generalsi(accion,tipo,lugar){
     text: `el ${tipo} fue ${accion} correctamente!`,
   }).then(function(){
     location.href=lugar
+  })
+}
+
+function ticket() {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Enhorabuena',
+    text: `Ha finalizado correctamente este ticket`,
+  }).then(function(){
+    location.href='tecnico.php'
+  })
+}
+
+function ticketn() {
+  Swal.fire({
+    position: 'center',
+    icon: 'error',
+    title: 'Oops...',
+    text: `Ocurrio un error inesperado`,
+  })
+}
+function actualizado(){
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Asignado',
+    text: `El ticket ha sido asignado/actualizado satisfactoriamente`,
+  }).then(function(){
+    location.href='admin.php'
+  })
+}
+
+function actualizadont() {
+  Swal.fire({
+    position: 'center',
+    icon: 'error',
+    title: 'Oops...',
+    text: `Ocurrio un error inesperado`,
   })
 }

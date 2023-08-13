@@ -1,5 +1,6 @@
     <?php
 include_once('conexion.php');
+include_once('valida_sesion.php');
 include_once('sesion_tecnico.php');
 $busqueda="";
 $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket;";
@@ -16,10 +17,10 @@ if ($busqueda == "prioridad") {
     $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket ORDER BY prioridad";
 }
 if ($busqueda == "finalizados") {
-    $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket AND  tickets.estado='finalizado'";
+    $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket AND  tickets.estado='Finalizado'";
 }
 if ($busqueda == "cancelado") {
-    $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket AND  tickets.estado='cancelado'";
+    $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket AND  tickets.estado='Cancelado'";
 }
 }
 
@@ -118,13 +119,14 @@ if ($busqueda == "cancelado") {
         </tr>
     </thead>
     
-<?php
+    <?php
     include_once("conexion.php");
     
     $resultado = mysqli_query($conexion, $sql);
 
     while ($comentario = mysqli_fetch_object($resultado)) {
                 ?>
+                <form action="actualizarticket.php" method="POST">
         <tbody>
             <td><?php echo($comentario->folio); ?></td>
             <td><?php echo($comentario->nombre); ?></td>
@@ -133,18 +135,20 @@ if ($busqueda == "cancelado") {
             <td name="folio"> <img src="data:image/jpg;base64,<?php echo base64_encode($comentario->imagen);?>" alt=""></td>
             <td><?php echo($comentario->estado);?></td>
             <td name="folio"><?php echo($comentario->proyecto);?></td>
-            <td><button id="mas">Mostrar Mas</button></th>
+            <input type="hidden" name="finalizar" value="Finalizado">
+            <input type="hidden" name="folio" value="<?php echo($comentario->folio); ?>">
+            <td><input type="submit" value="Finalizar" class="enviar"></th>
+            
 
-
-    </tbody>
-       
+        </tbody>
+    </form>
         <?php
     }
 
     ?>
 </table>
 
-  <center><a href="cerrar_sesion.php">cerrar sesion</a></center>
+  <center><a href="cierra_sesion.php">Cerrar sesion</a></center>
     </div>
 </body>
 </html>

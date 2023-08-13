@@ -278,7 +278,6 @@ display: block;
 #tickets-table {
   border-collapse: collapse;
   width: 100%;
-  cursor: pointer;
 }
 
 #tickets-table th, #tickets-table td {
@@ -321,4 +320,14 @@ input:hover{
 
 img{
   width: 100%;
+}
+
+.enviar{
+  background: rgba(25, 0, 255, 0.788);
+  padding: 5px;
+  border-radius: 4px;
+  color: white;
+}
+.enviar:hover{
+  background: rgba(25, 0, 255, 0.527);
 }

@@ -66,7 +66,6 @@ $rol=0;
         <?php } ?>
   </table>
   <center><a href="admin.php">atras</a></center>
-  <center><a href="cerrar_sesion.php">atras</a></center>
   
   <br>
 </div>

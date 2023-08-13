@@ -87,6 +87,6 @@
 
         </script>
 
-  <center><a href="cerrar_sesion.php">cerrar sesion</a></center>
+  <center><a href="cierra_sesion.php">cerrar sesion</a></center>
 </body>
 </html>

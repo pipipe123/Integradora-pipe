@@ -6,6 +6,10 @@
   font-size: 1rem;
 }
 
+img{
+  width: 100%;
+}
+
 body{
     color: aliceblue;
     background-image: url(https://engranedigital.com/wp-content/uploads/2019/01/Engrane_digital_fondo.jpg);
