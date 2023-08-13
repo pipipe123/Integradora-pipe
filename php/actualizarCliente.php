@@ -6,13 +6,7 @@ include_once("conexion.php");
  if ($fila = $sql1->fetch_assoc())
  {
      //me guarda el registro en el objeto $fila
- }
-?>
-
-
-
-
-
+ }?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +71,8 @@ include_once("conexion.php");
 </body>
 </html>
 
-<?php
+ <?php
+
  if ($_SERVER["REQUEST_METHOD"]=="POST")
   {
             //actualizar un registro de la BD
