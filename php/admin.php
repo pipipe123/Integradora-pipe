@@ -1,5 +1,6 @@
 <?php
 include_once("valida_sesion.php");
+include_once('sesion_admin.php');
 ?>
 
 <!DOCTYPE html>
@@ -85,8 +86,9 @@ include_once("valida_sesion.php");
 </table>
 </div>
 <div align="center">
-<button> <a href="../php/usuario.php">USUARIOS</a>
-</button>
+<button> <a href="../php/usuario.php">USUARIOS</a></button>
+<button><center><a href="admin.php">atras</a></center></button>
+<button><center><a href="cerrar_sesion.php">cerrar sesion</a></center></button>
 </div>
 
 </body>

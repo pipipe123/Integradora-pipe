@@ -89,11 +89,3 @@ function generalsi(accion,tipo,lugar){
     location.href=lugar
   })
 }
-
-// aaaaaaaaaaaaaa
-
-
-
-
-let frutas = ['manzana','naranja','pera'];
-console.log(frutas[0]);

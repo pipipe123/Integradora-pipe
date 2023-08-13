@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             $id_usuario = $fila["id"];
             $tipo =$fila["id_rol"]; //fila es lo que trae los resultados de el renglon asociado [tipo] es lo que estaba buscando
             $_SESSION["id_usuario"]=$id_usuario;
-           
+            $_SESSION['id_rol']=$tipo;
         }
         switch ($tipo) {
             case '2':

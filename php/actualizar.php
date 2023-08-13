@@ -3,7 +3,7 @@ include_once('conexion.php');
 
 $id=$_REQUEST['id'];
 $sql="select * from usuarios where id='$id'";
-print($sql);
+// print($sql);
 $ejecutar_sql=$conexion->query($sql);
 if ($fila = $ejecutar_sql->fetch_assoc())
 {
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     // $proyecto=$_POST['proyecto'];
 
     $sql="update usuarios set nombre='$nombre', email='$email' where id=$id ";
-    print($sql);
+    // print($sql);
     $ejecutar_sql=$conexion->query($sql);
     echo "   
     
@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
 
     </form>
-    <a href="usuarioQA.php">Atrás</a>
+    <a href="usuario.php">Atrás</a>
 </div>
 
 <script>

@@ -1,45 +1,4 @@
-<?php
- include_once("valida_sesion.php");
-include_once("conexion.php");
- $sql1 = mysqli_query($conexion, "select * from usuarios where id = '$id_usuario'");
-//  $ejecutar_sql=$conexion->query($sql1);
- if ($fila = $sql1->fetch_assoc())
- {
-     //me guarda el registro en el objeto $fila
- }
 
- if ($_SERVER["REQUEST_METHOD"]=="POST")
-  {
-            //actualizar un registro de la BD
-        $nombre=$_POST['nombre'];
-        $email=$_POST['email'];
-        
-
-        $sql="update usuarios set nombre='$nombre', email='$email'  where id = '$id_usuario'";
-
-        $ejecutar_sql=$conexion->query($sql);
-        echo "
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11.7.16/dist/sweetalert2.all.min.js'></script>
-        <script src='../js/alertas.js'></script>
-        <script>
-            var accion = 'actualizar';
-            var tipo = 'usuario';
-            var lugar = 'cliente.php';
-            </script>";
-            if ($ejecutar_sql)
-            {
-            echo " <script>   
-                generalsi(accion,tipo,lugar)
-                </script>";
-        }
-        else
-        {
-            echo " <script>   
-                generalno(accion,tipo)
-                </script>";
-        }
-  }
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +8,8 @@ include_once("conexion.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizacion</title>
     <link rel="stylesheet" href="../css/actualiza.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
 <div class="header">
@@ -101,3 +62,44 @@ include_once("conexion.php");
 </body>
 </html>
 
+<?php
+ include_once("valida_sesion.php");
+include_once("conexion.php");
+ $sql1 = mysqli_query($conexion, "select * from usuarios where id = '$id_usuario'");
+//  $ejecutar_sql=$conexion->query($sql1);
+ if ($fila = $sql1->fetch_assoc())
+ {
+     //me guarda el registro en el objeto $fila
+ }
+
+ if ($_SERVER["REQUEST_METHOD"]=="POST")
+  {
+            //actualizar un registro de la BD
+        $nombre=$_POST['nombre'];
+        $email=$_POST['email'];
+        
+
+        $sql="update usuarios set nombre='$nombre', email='$email'  where id = '$id_usuario'";
+
+        $ejecutar_sql=$conexion->query($sql);
+        echo "
+        <script src='../js/alertas.js'></script>
+        <script>
+            var accion = 'actualizar';
+            var tipo = 'usuario';
+            var lugar = 'cliente.php';
+            </script>";
+            if ($ejecutar_sql)
+            {
+            echo " <script>   
+                generalsi(accion,tipo,lugar)
+                </script>";
+        }
+        else
+        {
+            echo " <script>   
+                generalno(accion,tipo)
+                </script>";
+        }
+  }
+?>
