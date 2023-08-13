@@ -1,3 +1,17 @@
+<?php
+ include_once("valida_sesion.php");
+include_once("conexion.php");
+ $sql1 = mysqli_query($conexion, "select * from usuarios where id = '$id_usuario'");
+//  $ejecutar_sql=$conexion->query($sql1);
+ if ($fila = $sql1->fetch_assoc())
+ {
+     //me guarda el registro en el objeto $fila
+ }
+?>
+
+
+
+
 
 
 <!DOCTYPE html>
@@ -64,15 +78,6 @@
 </html>
 
 <?php
- include_once("valida_sesion.php");
-include_once("conexion.php");
- $sql1 = mysqli_query($conexion, "select * from usuarios where id = '$id_usuario'");
-//  $ejecutar_sql=$conexion->query($sql1);
- if ($fila = $sql1->fetch_assoc())
- {
-     //me guarda el registro en el objeto $fila
- }
-
  if ($_SERVER["REQUEST_METHOD"]=="POST")
   {
             //actualizar un registro de la BD
