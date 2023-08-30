@@ -331,3 +331,8 @@ img{
 .enviar:hover{
   background: rgba(25, 0, 255, 0.527);
 }
+table{
+  table-layout: fixed;
+  border-collapse: collapse;
+  overflow: hidden;
+}

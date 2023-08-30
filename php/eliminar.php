@@ -1,3 +1,9 @@
+<?php
+include_once('conexion.php');
+include_once("valida_sesion.php");
+include_once('sesion_admin.php');
+?>
+
 <!DOCTYPE html>
     <html lang="en">
     <head>

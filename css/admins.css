@@ -534,4 +534,8 @@ button a:active {
          inset 0 0 .5em .25em var(--glow-color);
 }
 
- 
+ table{
+  table-layout: fixed;
+  border-collapse: collapse;
+  overflow: hidden;
+}

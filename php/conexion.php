@@ -1,16 +1,19 @@
 <?php
 
-  //1.- Conectarme a la BD 
+  // 1.- Conectarme a la BD 
   // $servidor="127.0.0.1";
   // $usuario="root";
   // $password="";
   // $bd="tickets";
-
+    $servidor="integradora.engranedigital.com";
+    $usuario="integradora";
+    $password="pX6iZKNecMygZI1g";
+    $bd="integradora";
   //Metodo de conexion Orientado a Objetos
   //$conexion=new mysqli($servidor,$usuario,$password,$bd);
 
   //Metodo de conexion procedural
-  //  $conexion=mysqli_connect($servidor,$usuario,$password,$bd);
-  $conexion=mysqli_connect("sql108.byethost6.com","b6_34285040","BaNaLeS256","b6_34285040_tickets");
+   $conexion=mysqli_connect($servidor,$usuario,$password,$bd);
+
 
 ?>

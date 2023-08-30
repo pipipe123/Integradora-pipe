@@ -1,59 +1,49 @@
+
 <?php
-
-
+$registrado="";
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
+     //Desactivar las noticias y mostrar los errores
+      error_reporting(E_ALL ^ E_NOTICE);
+      
+     //1.- Conectarse a la BD
+     include_once("conexion.php");
+     //2.- Traer los datos del formulario
+     $nombre= $_POST['nombre'];
+     $pass=$_POST['pass'];
+     $email=$_POST['email'];
+     $rol=$_POST['rol'];
 
+        // user <-- solo puede visualizar
+        // admin <-- crud
 
-     
+    switch ($rol) {
+        case 'cliente':
+            $sql="INSERT INTO usuarios VALUES (null,'$nombre',md5('$pass'),'$email',2, 'user')";
+            $ejecutar_sql=$conexion->query($sql);
+            if ($ejecutar_sql){
+                $registrado = "bien";
+            }
+            break;
 
+        case 'tecnico':
+            include_once("insertecnico.php");
+            
 
-          //Desactivar las noticias y mostrar los errores
-           error_reporting(E_ALL ^ E_NOTICE);
-           $entrar="";
-          //1.- Conectarse a la BD
-          include_once("conexion.php");
-          //2.- Traer los datos del formulario
-          $nombre= $_POST['nombre'];
-          $pass=$_POST['pass'];
-          $email=$_POST['email'];
-          $rol=$_POST['rol'];
-     
-             // user <-- solo puede visualizar
-             // admin <-- crud
-     
-         switch ($rol) {
-             case 'cliente':
-                 $sql="INSERT INTO usuarios VALUES (null,'$nombre',md5('$pass'),'$email',2, 'user')";
-                 $ejecutar_sql=$conexion->query($sql);
-                 $entrar="acceso";
-                 break;
-     
-             case 'tecnico':
-                 include_once("insertecnico.php");
-                 $sql="INSERT INTO usuarios VALUES (null,'$nombre',md5('$pass'),'$email',3, 'user')";
-                 $ejecutar_sql=$conexion->query($sql);
-                 $entrar="acceso";
-                 break;
-     
-             case 'admin':
-                 include_once("insertadmin.php");
-                 $sql="INSERT INTO usuarios VALUES (null,'$nombre',md5('$pass'),'$email',1, 'user')";
-                 $ejecutar_sql=$conexion->query($sql);
-                 $entrar="acceso";
-                 break;
-             }
-     
-             if ($ejecutar_sql){
-                 header("location:login.php");
-             }
-      }
-     
-     
-     
-     
+            break;
 
+        case 'admin':
+            include_once("insertadmin.php");
+            
+
+            break;
+        }
+
+        
+ }
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/registro.css">
+    <link rel="icon" href="../img/logo.png" type="image/png">
     <title>registro</title>
 
 </head>
@@ -160,10 +151,11 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     }
 
     // Llamar a la función inicialmente para mostrar u ocultar el campo de proyecto correctamente
-    mostrarCampoProyecto();
+
 </script>
 
 </body>
 </html>
 
-<script src="../js/jquery-3.7.0.js"></script>
+
+<?php include_once("alertasregis.php"); ?>

@@ -128,3 +128,37 @@ function actualizadont() {
     text: `Ocurrio un error inesperado`,
   })
 }
+function registrado() {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: '! ! ! REGISTRADO CORRECTAMENTE ! ! !',
+    text: 'Te has registrado correctamente',
+    showConfirmButton: true,
+    timer: 2000
+  }).then(function(){
+    location.href='login.php'
+  })
+}
+
+function no() {
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'No se pudo realizar el registro',
+  }).then(function(){
+    location.href='registrar.php'
+  })
+}
+function enviado() {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: '! ! ! REGISTRADO CORRECTAMENTE ! ! !',
+    text: 'Te has registrado correctamente',
+    showConfirmButton: true,
+    timer: 2000
+  }).then(function(){
+    location.href='../html/index.html'
+  })
+}

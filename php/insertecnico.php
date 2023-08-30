@@ -11,24 +11,14 @@ $sql="INSERT INTO usuarios VALUES (null,'$nombre',md5('$pass'),'$email',3,'$espe
 if ($validacion->num_rows > 0) {
         $ejecutar_sql=$conexion->query($sql);
         if($ejecutar_sql){
-                echo " <script>   
-                alert('...  usuario $tipo agregado correctamente... ');
-                location.href='login.php';
-             </script>";
-             
-            
-            }   else
+            $registrado = "bien";
+            }else
             {
-            echo " <script>   
-                     alert('... No fue posible agregar al usuario $rol  verifique por favor... ');
-                  </script>";
-            }
+               $registrado = "mal";
+}
 }else
 {
-echo " <script>   
-         alert('... No fue posible agregar al usuario $rol  verifique por favor... ');
-      </script>";
+   $registrado = "mal";
 }
-
 
 ?>

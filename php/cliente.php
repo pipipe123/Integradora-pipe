@@ -1,5 +1,7 @@
 <?php
+
     include_once("valida_sesion.php");
+    // include_once('sesiones_cliente.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuario</title>
     <link rel="stylesheet" href="../css/cliente.css">
+    <link rel="icon" href="../img/logo.png" type="image/png">
 </head>
 <body>
     <div class="header">

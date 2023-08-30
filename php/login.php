@@ -1,6 +1,15 @@
 <?php 
 $entrar="";
 //AQUI ENTRA DESPUES DE PRESIONAR EL BOTON DE SUBMIT
+
+session_start();
+
+//verificar que existan las variables de inicio de sesion 
+if (isset($_SESSION))
+{
+   session_destroy();
+}
+
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
      include_once("conexion.php");
     
@@ -11,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
      // echo $us." ".$ps;
      
      //Instruccion SQL sin encriptar
-     $sql="select id_rol, id from usuarios where pass = md5('$ps') and nombre ='$us' or email= '$us'";
+     $sql="select id_rol, id from usuarios where pass = md5('$ps') and nombre ='$us' or pass = md5('$ps') and email= '$us'";
 
     // Verificar la conexión
 
@@ -70,6 +79,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilos_login.css">
+    <link rel="icon" href="../img/logo.png" type="image/png">
     <title>Login</title>
 </head>
 <body>

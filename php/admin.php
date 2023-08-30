@@ -1,8 +1,10 @@
 
 <?php
+
 include_once('conexion.php');
-include_once("valida_sesion.php");
+// include_once("valida_sesion.php");
 include_once('sesion_admin.php');
+
 ?>
 
 
@@ -12,7 +14,7 @@ include_once('sesion_admin.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>▷ Engrane Digital: Usuarios</title>
-    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="icon" href="../img/logo.png" type="image/png">
     <link rel="stylesheet" href="../css/admins.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -41,7 +43,6 @@ include_once('sesion_admin.php');
 <table align="center" id="tickets-table1">
 <thead>
         <tr>
-            <th>Nombre</th>
             <th>Email</th>
             <th>Folio</th>
             <th>Fecha</th>
@@ -65,7 +66,7 @@ include_once('sesion_admin.php');
                 ?>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <tbody>
-            <th><?php echo($comentario->nombre); ?></th>
+            
             <th><?php echo($comentario->email); ?></th>
             <th><?php echo($comentario->folio);?></th>
             <th><?php echo($comentario->fecha);?></th>
@@ -160,5 +161,4 @@ include_once('sesion_admin.php');
     </script><?php
    }
  }
-
 ?>

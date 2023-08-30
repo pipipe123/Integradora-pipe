@@ -14,7 +14,7 @@
    //eliminar un registro de la BD
    error_reporting(E_ERROR | E_PARSE);
    include_once('conexion.php');
-   include_once('sesion_admin.php');
+   // include_once('sesion_admin.php');
    $id=$_REQUEST['id'];
 
    $sql="delete from usuarios where id = '$id'";

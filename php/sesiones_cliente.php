@@ -1,7 +1,7 @@
 <?php
 
 //revisa la sesion
-session_start();
-if(($_SESSION['id_rol'])!=='1'){
+
+if(($_SESSION['id_rol'])!=='2'){
     header("location:login.php");
 }

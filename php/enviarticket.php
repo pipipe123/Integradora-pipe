@@ -1,6 +1,12 @@
 <?php
+$enviado = "";
+?>
+
+<?php
+
 include_once("conexion.php");
 include_once("valida_sesion.php");
+
 
 $proyecto = $_POST['proyecto'];
 $des = $_POST['des'];
@@ -21,7 +27,7 @@ $res = mysqli_query($conexion, $query_prueba);
 
 // Verificar si las inserciones fueron exitosas
     if ($resultado && $res) {
-        header("location:../html/index.html");
+        $enviado = "bien";
     } else {
         echo('No se pudo generar el ticket');
     }
@@ -29,3 +35,16 @@ $res = mysqli_query($conexion, $query_prueba);
  // No cierres la conexión aquí, debes mantenerla abierta hasta completar todas las operaciones.
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<?php include_once("alertaticket.php"); ?>
