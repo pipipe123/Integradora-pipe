@@ -17,6 +17,96 @@ include_once('sesion_admin.php');
     <link rel="icon" href="../img/logo.png" type="image/png">
     <link rel="stylesheet" href="../css/admins.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .container_card{
+    margin: 0 auto;
+    padding:  0px 20px 20px 20px;
+    display: grid;
+    /* width: 800px; */
+    grid-template-columns: 1fr 1fr ;
+    grid-gap:1em;
+        /* grid-row-gap: 60px; */
+}
+
+.blog-post{
+    position: relative;
+    margin-bottom: 15px;
+    margin: 30px;
+}
+
+.blog-post img{
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+    }
+
+.blog-post .category{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+  font-size: 14px;    text-decoration: none;
+    background-color: #e67e22;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.1);
+    text-transform: uppercase;
+}
+.text-content{
+    position: absolute;
+    bottom: -30px;
+    padding: 20px;
+    background-color: #fff;
+    width: calc(100% - 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.08);
+    padding-top: 50px;
+}
+
+.text-content h2{
+    font-size: 20px;
+    font-weight: 400;
+    /* margin-bottom: 30px; */
+}
+
+.text-content img{
+    height: 70px;
+    width: 70px;
+    border: 5px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    position: absolute;
+    top: -35px;
+    left: 35px;
+}
+
+.tags a{
+    color: #888;
+    font-weight: 700;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: 0.3s ease;
+}
+
+.tags a:hover{
+    color: #000;
+}
+@media screen and (max-width: 1100px) {
+    .container_card{
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 60px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container_card{
+        grid-template-columns: 1fr;
+        grid-row-gap: 60px;
+    }
+}
+    </style>
 </head>
 <body>
     <div class="header">
@@ -43,13 +133,13 @@ include_once('sesion_admin.php');
 <table align="center" id="tickets-table1">
 <thead>
         <tr>
-            <th>Email</th>
+            <th colspan="1.5">Email</th>
             <th>Folio</th>
             <th>Fecha</th>
             <th>Detalles</th>
             <th>Estado</th>
             <th>Proyecto</th>
-            <th>Pruebas</th>
+            <th>Imagen</th>
             <th>Tecnico</th>
             <th>Prioridad</th>
             <th colspan="2">Acciones</th>
@@ -60,8 +150,51 @@ include_once('sesion_admin.php');
     <?php
     include_once("conexion.php");
     
-    $resultado = mysqli_query($conexion, "SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket;");
-    while ($comentario = mysqli_fetch_object($resultado)) {
+
+
+    ?>
+    <!-- //paginacion -->
+    <div class="center mt-5">
+    <div class="card pt-3" >
+
+        <div class="container-fluid p-2">
+            <?php 
+  if(!empty($_REQUEST["nume"])){ $_REQUEST["nume"] = $_REQUEST["nume"];}else{ $_REQUEST["nume"] = '1';}
+            if($_REQUEST["nume"] == "" ){$_REQUEST["nume"] = "1";}
+            $resultado = mysqli_query($conexion, "SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket;");
+            $num_registros=@mysqli_num_rows($resultado);
+            $registros= '3';
+            $pagina=$_REQUEST["nume"];
+            if (is_numeric($pagina))
+            $inicio= (($pagina-1)*$registros);
+            else
+            $inicio=0;
+    $busqueda = mysqli_query($conexion, "SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket limit $inicio, $registros;");
+
+            $paginas=ceil($num_registros/$registros);
+            
+            ?>
+            <h5 class="card-tittle">Resultados (<?php echo $num_registros; ?>)</h5>
+    <!-- // if(!empty($_REQUEST["nume"])){
+    //     $_REQUEST["nume"] = $_REQUEST["nume"];
+    // }else{
+    //     $_REQUEST["nume"]= "1";
+    // }
+    // //valida que la paginacion tenga algo, si no tiene algo la deja en 1 para evitar errores :D
+    // $num_tickets=@mysqli_num_rows($resultado);
+    // $registros= '8';//es la cantidad de registros que se mostrara por pagina
+    // $pagina=$_REQUEST["nume"];
+    // //esto evitara problemas pero no entendi como
+    // if (is_numeric($pagina)){
+    //     $inicio=(($pagina-1)*$registros);
+    // }else{
+    //     $inicio=0;
+    // }
+
+    // $busqueda = mysqli_query($conexion, "SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket limit $inicio, $registros;");
+    // $paginas=ceil($num_tickets/$registros); -->
+<?php
+    while ($comentario = mysqli_fetch_object($busqueda)) {
         $tecnicos =mysqli_query($conexion, "SELECT nombre, id, especialidad FROM usuarios WHERE id_rol = '3';");
                 ?>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
@@ -125,11 +258,50 @@ include_once('sesion_admin.php');
        
         <?php
     }
-
     ?>
+                </div>
+        </div>
 </table>
+<!-- aqui va la paginacion como tal -->
+<div class="container-fluid  col-12">
+        <ul class="pagination pg-dark justify-content-center pb-5 pt-5 mb-0" style="float: none;" >
+            <li class="page-item">
+            <?php
+            if($_REQUEST["nume"] == "1" ){
+            $_REQUEST["nume"] == "0";
+            echo  "";
+            }else{
+            if ($pagina>1)
+            $ant = $_REQUEST["nume"] - 1;
+            echo "<a class='page-link' aria-label='Previous' href='index.php?nume=1'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Previous</span></a>"; 
+            echo "<li class='page-item '><a class='page-link' href='index.php?nume=". ($pagina-1) ."' >".$ant."</a></li>"; }
+            echo "<li class='page-item active'><a class='page-link' >".$_REQUEST["nume"]."</a></li>"; 
+            $sigui = $_REQUEST["nume"] + 1;
+            $ultima = $num_registros / $registros;
+            if ($ultima == $_REQUEST["nume"] +1 ){
+            $ultima == "";}
+            if ($pagina<$paginas && $paginas>1)
+            echo "<li class='page-item'><a class='page-link' href='index.php?nume=". ($pagina+1) ."'>".$sigui."</a></li>"; 
+            if ($pagina<$paginas && $paginas>1)
+            echo "
+            <li class='page-item'><a class='page-link' aria-label='Next' href='index.php?nume=". ceil($ultima) ."'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a>
+            </li>";
+            ?>
+        </ul>
+    </div>
+
+<li><a href='../php/admin.php?nume=". ($pagina-1) ."'>.$ant</a></li>
+
+
+
+
+
+<!-- tambien paginacion -->
+<h1 align="center"> resultados ( <?php echo $num_tickets?> )</h1>
 </div>
 <div align="center">
+
+
 <button> <a href="usuario.php">USUARIOS</a></button>
 
 <button><center><a href="cierra_sesion.php">Cerrar sesion</a></center></button>

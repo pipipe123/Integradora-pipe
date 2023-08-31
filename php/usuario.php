@@ -65,7 +65,7 @@ $rol=0;
             </tr>
         <?php } ?>
   </table>
-  <center><a href="admin.php">atras</a></center>
+  <center><button><a href="admin.php">atrás</a></button></center>
   
   <br>
 </div>

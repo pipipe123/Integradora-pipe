@@ -37,7 +37,9 @@
    {
     echo "<script>   
       generalno(accion,tipo)
+      location.href='usuario.php'
       </script>";
+      // esta es la unica excepcion del general por lo que es mas facil simplemente añadir a mano el lugar
    }
 
 

@@ -149,7 +149,7 @@ if ($busqueda == "Cancelados") {
     ?>
 </table>
 
-  <center><a href="cierra_sesion.php">Cerrar sesion</a></center>
+  <center><button><a href="cierra_sesion.php">Cerrar sesion</a></button></center>
     </div>
 </body>
 </html>

@@ -15,15 +15,15 @@ $validacion = mysqli_query($conexion, $validar);
 if ($validacion->num_rows > 0) {
         $ejecutar_sql=$conexion->query($sql);
         if($ejecutar_sql){
-         $registrado = "bien";
-            }   else
-            {
-               $registrado = "mal";
-            }
-}else
-{
-   $registrado = "mal";
-}
 
+         $registrado = "bien";
+         }else{
+
+               $registrado = "mal";
+            }}else{
+
+   $registrado = "mal";
+   include_once("alertasregis.php"); 
+}
 
 ?>
