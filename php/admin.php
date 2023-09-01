@@ -163,7 +163,7 @@ include_once('sesion_admin.php');
             if($_REQUEST["nume"] == "" ){$_REQUEST["nume"] = "1";}
             $resultado = mysqli_query($conexion, "SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket;");
             $num_registros=@mysqli_num_rows($resultado);
-            $registros= '3';
+            $registros= '1';
             $pagina=$_REQUEST["nume"];
             if (is_numeric($pagina))
             $inicio= (($pagina-1)*$registros);
@@ -273,31 +273,30 @@ include_once('sesion_admin.php');
             }else{
             if ($pagina>1)
             $ant = $_REQUEST["nume"] - 1;
-            echo "<a class='page-link' aria-label='Previous' href='index.php?nume=1'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Previous</span></a>"; 
-            echo "<li class='page-item '><a class='page-link' href='index.php?nume=". ($pagina-1) ."' >".$ant."</a></li>"; }
+            echo "<a class='page-link' aria-label='Previous' href='../php/admin.php?nume=1'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Previous</span></a>"; 
+            echo "<li class='page-item '><a class='page-link' href='../php/admin.php?nume=". ($pagina-1) ."' >".$ant."</a></li>"; }
             echo "<li class='page-item active'><a class='page-link' >".$_REQUEST["nume"]."</a></li>"; 
             $sigui = $_REQUEST["nume"] + 1;
             $ultima = $num_registros / $registros;
             if ($ultima == $_REQUEST["nume"] +1 ){
             $ultima == "";}
             if ($pagina<$paginas && $paginas>1)
-            echo "<li class='page-item'><a class='page-link' href='index.php?nume=". ($pagina+1) ."'>".$sigui."</a></li>"; 
+            echo "<li class='page-item'><a class='page-link' href='../php/admin.php?nume=". ($pagina+1) ."'>".$sigui."</a></li>"; 
             if ($pagina<$paginas && $paginas>1)
             echo "
-            <li class='page-item'><a class='page-link' aria-label='Next' href='index.php?nume=". ceil($ultima) ."'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a>
+            <li class='page-item'><a class='page-link' aria-label='Next' href='../php/admin.php?nume=". ceil($ultima) ."'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a>
             </li>";
             ?>
         </ul>
     </div>
 
-<li><a href='../php/admin.php?nume=". ($pagina-1) ."'>.$ant</a></li>
 
 
 
 
 
 <!-- tambien paginacion -->
-<h1 align="center"> resultados ( <?php echo $num_tickets?> )</h1>
+<h1 align="center"> resultados ( <?php echo $num_registros?> )</h1>
 </div>
 <div align="center">
 
