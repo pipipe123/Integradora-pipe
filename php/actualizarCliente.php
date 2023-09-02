@@ -49,7 +49,7 @@ include_once("conexion.php");
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
             <input type="text" placeholder="Nombre" id="nombre" name="nombre" value="<?php echo $fila['nombre'] ?>">
             <input type="email" placeholder="Email" id="email" name="email" value="<?php echo $fila['email'] ?>">
-            <input type="password" placeholder="Contraseña" id="pass" name="pass" value="<?php echo $fila['pass'] ?>">
+            <input type="password" placeholder="Nueva contraseña" id="pass" name="pass">
             <input type="submit" value="Actualizar">
         </form>
         <a class="back-link" href="cliente.php">Atrás</a>

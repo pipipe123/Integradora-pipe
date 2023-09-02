@@ -16,6 +16,7 @@ include_once('sesion_admin.php');
     <title>▷ Engrane Digital: Usuarios</title>
     <link rel="icon" href="../img/logo.png" type="image/png">
     <link rel="stylesheet" href="../css/admins.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .container_card{
@@ -154,16 +155,16 @@ include_once('sesion_admin.php');
 
     ?>
     <!-- //paginacion -->
-    <div class="center mt-5">
-    <div class="card pt-3" >
+    <div >
+    <div  >
 
-        <div class="container-fluid p-2">
+        <div >
             <?php 
   if(!empty($_REQUEST["nume"])){ $_REQUEST["nume"] = $_REQUEST["nume"];}else{ $_REQUEST["nume"] = '1';}
             if($_REQUEST["nume"] == "" ){$_REQUEST["nume"] = "1";}
             $resultado = mysqli_query($conexion, "SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket;");
             $num_registros=@mysqli_num_rows($resultado);
-            $registros= '1';
+            $registros= '5';
             $pagina=$_REQUEST["nume"];
             if (is_numeric($pagina))
             $inicio= (($pagina-1)*$registros);
@@ -172,9 +173,9 @@ include_once('sesion_admin.php');
     $busqueda = mysqli_query($conexion, "SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket limit $inicio, $registros;");
 
             $paginas=ceil($num_registros/$registros);
-            
+        
             ?>
-            <h5 class="card-tittle">Resultados (<?php echo $num_registros; ?>)</h5>
+
     <!-- // if(!empty($_REQUEST["nume"])){
     //     $_REQUEST["nume"] = $_REQUEST["nume"];
     // }else{
@@ -273,7 +274,7 @@ include_once('sesion_admin.php');
             }else{
             if ($pagina>1)
             $ant = $_REQUEST["nume"] - 1;
-            echo "<a class='page-link' aria-label='Previous' href='../php/admin.php?nume=1'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Previous</span></a>"; 
+            echo "<a class='page-link' aria-label='Previous' href='../php/admin.php?nume=1'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Anterior</span></a>"; 
             echo "<li class='page-item '><a class='page-link' href='../php/admin.php?nume=". ($pagina-1) ."' >".$ant."</a></li>"; }
             echo "<li class='page-item active'><a class='page-link' >".$_REQUEST["nume"]."</a></li>"; 
             $sigui = $_REQUEST["nume"] + 1;
@@ -284,7 +285,7 @@ include_once('sesion_admin.php');
             echo "<li class='page-item'><a class='page-link' href='../php/admin.php?nume=". ($pagina+1) ."'>".$sigui."</a></li>"; 
             if ($pagina<$paginas && $paginas>1)
             echo "
-            <li class='page-item'><a class='page-link' aria-label='Next' href='../php/admin.php?nume=". ceil($ultima) ."'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a>
+            <li class='page-item'><a class='page-link' aria-label='Next' href='../php/admin.php?nume=". ceil($ultima) ."'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Siguiente</span></a>
             </li>";
             ?>
         </ul>
@@ -296,7 +297,7 @@ include_once('sesion_admin.php');
 
 
 <!-- tambien paginacion -->
-<h1 align="center"> resultados ( <?php echo $num_registros?> )</h1>
+<h4 align="center"> resultados ( <?php echo $num_registros?> )</h1>
 </div>
 <div align="center">
 
@@ -305,6 +306,7 @@ include_once('sesion_admin.php');
 
 <button><center><a href="cierra_sesion.php">Cerrar sesion</a></center></button>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 </body>
 </html>
