@@ -52,8 +52,9 @@
     <textarea name="des" id="des" cols="100" rows="10" maxlength="500" placeholder="Describa su problema"></textarea>
     <br>
     <label  for="imagen" class="adjuntar-imagen">Adjuntar imagen:</label>
-        <input type="file" id="imagen" name="Imagen" class="input-imagen" require><br>
+    <input type="file" id="imagen" name="Imagen" class="input-imagen" require><br>
     <input type="button" id="enviar" value="Enviar comentario">
+    <center><button><a href="cierra_sesion.php">cerrar sesion</a></button></center>
 </form>
 </div>
 
@@ -90,6 +91,5 @@
 
         </script>
 
-  <center><a href="cierra_sesion.php">cerrar sesion</a></center>
 </body>
 </html>

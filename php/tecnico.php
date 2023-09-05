@@ -1,4 +1,4 @@
-    <?php
+<?php
 include_once('conexion.php');
 include_once('sesion_tecnico.php');
 include_once('valida_sesion.php');
@@ -6,40 +6,51 @@ include_once('valida_sesion.php');
 
 if(!empty($_REQUEST["nume"])){ $_REQUEST["nume"] = $_REQUEST["nume"];}else{ $_REQUEST["nume"] = '1';}
 if($_REQUEST["nume"] == "" ){$_REQUEST["nume"] = "1";}
-$resultado = mysqli_query($conexion, "SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket;");
-$num_registros=@mysqli_num_rows($resultado);
-$registros= '1';
+$registros= '2';
 $pagina=$_REQUEST["nume"];
 if (is_numeric($pagina))
 $inicio= (($pagina-1)*$registros);
 else
 $inicio=0;
-
-// aqui voy a meter el paginado
-
 $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket WHERE tickets.id_tecnico = '$id_usuario'";
 
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
-    $busqueda=$_POST['busqueda'];
+    $busqueda=$_POST['busqueda'];// aqui hay algo
+
     if ($busqueda == "registrados") {
-        $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket WHERE tickets.id_tecnico = '$id_usuario' ORDER BY fecha DESC limit $inicio, $registros;";
+        $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket WHERE tickets.id_tecnico = '$id_usuario' ORDER BY fecha";
     }
     if ($busqueda=="nombre") {
-        $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket WHERE tickets.id_tecnico = '$id_usuario' ORDER BY nombre DESC limit $inicio, $registros;";
+        $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket WHERE tickets.id_tecnico = '$id_usuario' ORDER BY nombre";
     }
     if ($busqueda == "prioridad") {
-        $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket WHERE tickets.id_tecnico = '$id_usuario' ORDER BY prioridad limit $inicio, $registros;";
+        $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket WHERE tickets.id_tecnico = '$id_usuario' ORDER BY prioridad ";
     }
     if ($busqueda == "finalizados") {
-        $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket AND  tickets.estado='finalizado' WHERE tickets.id_tecnico = '$id_usuario' limit $inicio, $registros;";
+        $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket AND  tickets.estado='finalizado' WHERE tickets.id_tecnico = '$id_usuario' ";
     }
     if ($busqueda == "Cancelados") {
-        $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket AND  tickets.estado='cancelado' WHERE tickets.id_tecnico = '$id_usuario' limit $inicio, $registros;";
+        $sql="SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket AND  tickets.estado='cancelado' WHERE tickets.id_tecnico = '$id_usuario' ";
     }
 }
 
-
+$resultado_total = mysqli_query($conexion, $sql);
+$resultado = mysqli_query($conexion, $sql." limit $inicio, $registros;");
+$num_registros=@mysqli_num_rows($resultado_total);
 $paginas=ceil($num_registros/$registros);
+
+
+
+print $busqueda."<br>";
+print $registros."<br>";
+print $num_registros."<br>";
+
+
+// aqui voy a meter el paginado
+
+
+
+
 ?>
 
 
@@ -139,7 +150,6 @@ $paginas=ceil($num_registros/$registros);
     <?php
     include_once("conexion.php");
     
-    $resultado = mysqli_query($conexion, $sql);
 
     while ($comentario = mysqli_fetch_object($resultado)) {
                 ?>
@@ -174,18 +184,18 @@ $paginas=ceil($num_registros/$registros);
             }else{
             if ($pagina>1)
             $ant = $_REQUEST["nume"] - 1;
-            echo "<a class='page-link' aria-label='Previous' href='../php/admin.php?nume=1'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Anterior</span></a>"; 
-            echo "<li class='page-item '><a class='page-link' href='../php/admin.php?nume=". ($pagina-1) ."' >".$ant."</a></li>"; }
+            echo "<a class='page-link' aria-label='Previous' href='../php/tecnico.php?nume=1'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Anterior</span></a>"; 
+            echo "<li class='page-item '><a class='page-link' href='../php/tecnico.php?nume=". ($pagina-1) ."' >".$ant."</a></li>"; }
             echo "<li class='page-item active'><a class='page-link' >".$_REQUEST["nume"]."</a></li>"; 
             $sigui = $_REQUEST["nume"] + 1;
             $ultima = $num_registros / $registros;
             if ($ultima == $_REQUEST["nume"] +1 ){
             $ultima == "";}
             if ($pagina<$paginas && $paginas>1)
-            echo "<li class='page-item'><a class='page-link' href='../php/admin.php?nume=". ($pagina+1) ."'>".$sigui."</a></li>"; 
+            echo "<li class='page-item'><a class='page-link' href='../php/tecnico.php?nume=". ($pagina+1) ."'>".$sigui."</a></li>"; 
             if ($pagina<$paginas && $paginas>1)
             echo "
-            <li class='page-item'><a class='page-link' aria-label='Next' href='../php/admin.php?nume=". ceil($ultima) ."'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Siguiente</span></a>
+            <li class='page-item'><a class='page-link' aria-label='Next' href='../php/tecnico.php?nume=". ceil($ultima) ."'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Siguiente</span></a>
             </li>";
             ?>
         </ul>

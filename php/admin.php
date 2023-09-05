@@ -164,7 +164,7 @@ include_once('sesion_admin.php');
             if($_REQUEST["nume"] == "" ){$_REQUEST["nume"] = "1";}
             $resultado = mysqli_query($conexion, "SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket;");
             $num_registros=@mysqli_num_rows($resultado);
-            $registros= '5';
+            $registros= '3';
             $pagina=$_REQUEST["nume"];
             if (is_numeric($pagina))
             $inicio= (($pagina-1)*$registros);

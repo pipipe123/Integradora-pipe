@@ -57,8 +57,8 @@ include_once("conexion.php");
     <div class="image">
         <!-- Agrega aquí tu imagen -->
         <img src="../img/actua.png" height="300px" width="300px">
+        <center><button><a href="cliente.php">atras</a></button></center>
     </div>
-    <center><a href="cliente.php">atras</a></center>
 </div>
 
 
@@ -78,10 +78,11 @@ include_once("conexion.php");
             //actualizar un registro de la BD
         $nombre=$_POST['nombre'];
         $email=$_POST['email'];
-        
+        $pass=$_POST['pass'];
+    
 
-        $sql="update usuarios set nombre='$nombre', email='$email'  where id = '$id_usuario'";
-
+        $sql="update usuarios set nombre='$nombre', email='$email', pass= md5('$pass') where id = '$id_usuario'";
+        // print $sql;
         $ejecutar_sql=$conexion->query($sql);
         echo "
         <script src='../js/alertas.js'></script>
