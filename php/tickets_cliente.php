@@ -134,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             ?>
         </ul>
     </div>
-  <center><button><a href="cierra_sesion.php">Cerrar sesion</a></button></center>
+  <center><button><a href="cliente.php">Atras</a></button></center>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>

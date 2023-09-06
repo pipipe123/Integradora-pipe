@@ -154,8 +154,8 @@ function enviado() {
   Swal.fire({
     position: 'center',
     icon: 'success',
-    title: '! ! ! REGISTRADO CORRECTAMENTE ! ! !',
-    text: 'Te has registrado correctamente',
+    title: '! ! ! TICKET REGISTRADO ! ! !',
+    text: 'Tu ticket se ah registrado correctamente',
     showConfirmButton: true,
     timer: 2000
   }).then(function(){

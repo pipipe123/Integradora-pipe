@@ -55,6 +55,8 @@
     <input type="file" id="imagen" name="Imagen" class="input-imagen" require><br>
     <input type="button" id="enviar" value="Enviar comentario">
     <center><button><a href="cierra_sesion.php">cerrar sesion</a></button></center>
+    <center><button><a href="tickets_cliente.php">mis tickets</a></button></center>
+
 </form>
 </div>
 

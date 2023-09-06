@@ -3,10 +3,11 @@
     include_once("conexion.php");
     // include_once('sesiones_cliente.php');
     $id=$_REQUEST['id'];
+    $sql="select * from tickets where folio='$id'";
+    // print $sql;
+    $busqueda=mysqli_query($conexion,$sql);
   
-    $busqueda=mysqli_query($conexion,"select * from tickets where id='$id'");
-  
-   while ($comentario = mysqli_fetch_object($busqueda))
+   if ($fila = $busqueda-> fetch_assoc())
     {
       //me guarda el registro en el objeto $fila
     }
@@ -88,7 +89,7 @@
     <label  for="imagen" class="adjuntar-imagen">Adjuntar imagen:</label>
     <input type="file" id="imagen" name="Imagen" class="input-imagen" require><br>
     <input type="button" id="enviar" value="Enviar comentario">
-    <center><button><a href="cierra_sesion.php">cerrar sesion</a></button></center>
+    <center><button><a href="tickets_cliente.php">atras</a></button></center>
 </form>
 </div>
 
