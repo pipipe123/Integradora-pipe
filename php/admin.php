@@ -176,24 +176,7 @@ include_once('sesion_admin.php');
         
             ?>
 
-    <!-- // if(!empty($_REQUEST["nume"])){
-    //     $_REQUEST["nume"] = $_REQUEST["nume"];
-    // }else{
-    //     $_REQUEST["nume"]= "1";
-    // }
-    // //valida que la paginacion tenga algo, si no tiene algo la deja en 1 para evitar errores :D
-    // $num_tickets=@mysqli_num_rows($resultado);
-    // $registros= '8';//es la cantidad de registros que se mostrara por pagina
-    // $pagina=$_REQUEST["nume"];
-    // //esto evitara problemas pero no entendi como
-    // if (is_numeric($pagina)){
-    //     $inicio=(($pagina-1)*$registros);
-    // }else{
-    //     $inicio=0;
-    // }
 
-    // $busqueda = mysqli_query($conexion, "SELECT usuarios.nombre as nombre, usuarios.email as email, tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as des, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket limit $inicio, $registros;");
-    // $paginas=ceil($num_tickets/$registros); -->
 <?php
     while ($comentario = mysqli_fetch_object($busqueda)) {
         $tecnicos =mysqli_query($conexion, "SELECT nombre, id, especialidad FROM usuarios WHERE id_rol = '3';");

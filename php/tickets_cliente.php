@@ -1,12 +1,30 @@
 <?php
 include_once('conexion.php');
 include_once('valida_sesion.php');
-$sql="SELECT * from tickets where id_usuario = $id_usuario";
+// $sql="SELECT * from tickets where id_usuario = $id_usuario";
+if(!empty($_REQUEST["nume"])){ $_REQUEST["nume"] = $_REQUEST["nume"];}else{ $_REQUEST["nume"] = '1';}
+$resultado = mysqli_query($conexion, "SELECT tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as descripcion, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket where id_usuario = $id_usuario;");
+// $busqueda="SELECT * from pruebas where ";
+$num_registros=@mysqli_num_rows($resultado);
+$registros= '3';
+$pagina=$_REQUEST["nume"];
+if (is_numeric($pagina))
+$inicio= (($pagina-1)*$registros);
+else
+$inicio=0;
 
-$busqueda="SELECT * from pruebas where ";
-
-
+$busqueda=mysqli_query($conexion, "SELECT tickets.folio as folio, tickets.fecha as fecha, tickets.descripcion as descripcion, tickets.estado as estado, tickets.proyecto as proyecto, pruebas.imagen as imagen, tickets.prioridad as prioridad from usuarios INNER JOIN tickets ON usuarios.id = tickets.id_usuario INNER JOIN pruebas ON tickets.folio = pruebas.folio_ticket where id_usuario = $id_usuario limit $inicio, $registros;");
+$paginas=ceil($num_registros/$registros);
 ?>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"]=="POST"){
+    $folio=$_POST['folio'];
+    $actualiza=mysqli_query($conexion,"UPDATE tickets SET estado = 'cancelado' where folio = $folio");
+
+}
+?>
+
 
 
 <!DOCTYPE html>
@@ -17,6 +35,7 @@ $busqueda="SELECT * from pruebas where ";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Técnico</title>
     <link rel="icon" href="../img/logo.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/tecnico.css">
 </head>
 <body>
@@ -57,28 +76,30 @@ $busqueda="SELECT * from pruebas where ";
             <th>Estado</th>
             <th>Imagen</th>
             <th>Proyecto</th>
-            <th colspan="2"></th>
+            <th colspan="2">acciones</th>
         </tr>
     </thead>
     
     <?php
     include_once("conexion.php");
     
-    $resultado = mysqli_query($conexion, $sql);
+    // $resultado = mysqli_query($conexion, $busqueda);
+    // print "$busqueda";
 
-    while ($comentario = mysqli_fetch_object($resultado)) {
+    while ($comentario = mysqli_fetch_object($busqueda)) {
                 ?>
-                <form action="actualizarticket.php" method="POST">
         <tbody>
             <td><?php echo($comentario->folio); ?></td>
-            <td><?php echo($comentario->des);?></td>
-            <td name="folio"> <img src="data:image/jpg;base64,<?php echo base64_encode($comentario->imagen);?>" alt=""></td>
+            <td><?php echo($comentario->fecha);?></td>
+            <td><?php echo($comentario->descripcion);?></td>
             <td><?php echo($comentario->estado);?></td>
+            <td name="folio"> <img src="data:image/jpg;base64,<?php echo base64_encode($comentario->imagen);?>" alt=""></td>
             <td name="folio"><?php echo($comentario->proyecto);?></td>
-            <input type="hidden" name="finalizar" value="Finalizado">
-            <input type="hidden" name="folio" value="<?php echo($comentario->folio); ?>">
-            <td><input type="submit" value="Finalizar" class="enviar"></th>
-            
+            <td><a href='actualizar_ticket.php?id=<?php echo($comentario->folio) ?>'> >actualizar</a></td>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+            <input type="hidden" name="folio" value="<?php echo($comentario->folio);?>">
+                <td><input type="submit" value="cancelar"></td>
+            </form>
 
         </tbody>
     </form>
