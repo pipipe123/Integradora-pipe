@@ -13,6 +13,32 @@ body{
   background-size: cover;
 }
 
+.custom-button {
+  background-color: #f5f0f0;;
+  color: #ccc;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.custom-button a {
+  color: rgb(12, 12, 12); /* Color de texto azul para los enlaces dentro del botón */
+  text-decoration: none; /* Quita el subrayado de los enlaces dentro del botón */
+}
+
+.custom-button:hover {
+  background-color: #ccc
+}
+
+.custom-button:hover a {
+  color: rgb(12, 12, 12); /* Cambia el color de texto de los enlaces dentro del botón al pasar el ratón por encima */
+}
+
 
         /* Estilos para el encabezado */
         .header {

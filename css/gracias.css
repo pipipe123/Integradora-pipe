@@ -33,6 +33,37 @@ body{
     height: auto;
     max-width: 35%;
   }
+
+  /*mis tickets link*/
+  
+  .custom-button {
+    background-color: green;
+    color: #060707; /* Color de texto azul (puedes cambiarlo según tus preferencias) */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.custom-button:hover {
+    background-color: transparent;
+    color: #0056b3; /* Cambia el color de texto al pasar el ratón por encima (opcional) */
+    transition: color 0.3s ease; /* Agrega una transición suave para el cambio de color (opcional) */
+}
+
+.custom-link {
+    color: inherit; /* Hereda el color del texto del botón (azul) */
+    text-decoration: none;
+}
+
+.custom-link:hover {
+    text-decoration: underline; /* Opcional: Subrayado al pasar el ratón por encima del enlace */
+}
+
+
   /* Estilos para el menú */
   
   .menu {

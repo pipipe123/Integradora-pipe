@@ -103,14 +103,18 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         </header>
         <form  method="POST" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>  ">
 
-            <input type="text" placeholder="Ingrese nombre o email" id="nombre" name="nombre">
+            <input type="text" placeholder="Ingresa nombre o email" id="nombre" name="nombre">
             <input type="password" placeholder="Contraseña" id="contraseña" name="pass">
 
             
 
             <input type="submit" value="Entrar" name="entrar" onclick="validarEmail()">
             <a href="../html/lostpass.html" id="recPass">Recuperar contraseña</a>
-            <a href="registrar.php">Registrate</a>
+           
+           <center>
+           <a href="registrar.php" class="register-link">Regístrate</a>
+           </center> 
+
 
         </form>
         

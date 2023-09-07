@@ -138,6 +138,20 @@ body{
     height: 2rem;
     line-height: 2rem;
   }
+
+  .register-link {
+    display: inline-block; /* Hace que el enlace sea un elemento en línea para centrarlo */
+    padding: 10px 20px; /* Agrega espacio alrededor del enlace */
+    background-color: #f3f2f2; /* Color de fondo del enlace */
+    color: rgb(7, 7, 7); /* Color del texto del enlace */
+    text-decoration: none; /* Elimina subrayado del enlace */
+    border-radius: 5px; /* Agrega esquinas redondeadas */
+    margin-top: 10px; /* Espacio superior para separar del formulario */
+}
+
+.register-link:hover {
+    background-color: rgba(0, 233, 225, 1);
+}
   
 
 /* Estilos para el encabezado */
