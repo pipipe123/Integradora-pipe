@@ -5,7 +5,7 @@
     font-family: 'Roboto', sans-serif;
   font-size: 1rem;
 }
-
+ss
 body{
     color: aliceblue;
     background-image: url(https://engranedigital.com/wp-content/uploads/2019/01/Engrane_digital_fondo.jpg);
@@ -75,48 +75,51 @@ body{
     background-color: rgb(8, 8, 8);
   }
 
-
-  form{
-    transition: transform 0.3s;
-    transform-style: preserve-3d;
-    float: left;
-    margin-left: 4.6rem;
+/* Estilos para los formularios */
+form {
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+  float: left;
+  margin-left: 1rem; /* Reduzco el margen para ajustar la separación entre los formularios */
+  text-align: center; /* Centra el contenido en los formularios */
+  cursor: pointer; /* Cambia el cursor al pasar sobre los formularios */
 }
 
-  form:hover {
+form:hover {
   transform: translate3d(0, -10px, 0);
 }
 
-  form:active{
-    transition: transform 0.3s;
-    transform-style: preserve-3d;
+form:active {
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
 }
+
+/* Estilos para el contenido dentro de los formularios */
+.content-box {
+  max-width: 5rem;
+  padding: .7rem;
+  border-radius: 10px;
+  background: rgba(36, 36, 36, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 17, 255, 0.37);
+  backdrop-filter: blur(2px);
+}
+
+.content-box img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: .6rem;
+}
+
+.content-box a {
+  text-decoration: none;
+  color: azure;
+}
+
+.content-box:active {
+  background-color: #333;
+}
+
   
-  .content-box{
-    max-width: 5rem;
-    padding: .7rem;
-    border-radius: 10px;
-    background: rgba(36, 36, 36, 0.15);
-    box-shadow: 0 8px 32px 0 rgba(0, 17, 255, 0.37);
-    backdrop-filter: blur(2px);
-    
-  }
-
-  .content-box img{
-    width: 5rem;
-    height: 5rem;
-    border-radius: .6rem;
-  }
-
-  .content-box a{
-    text-decoration: none;
-    color: azure;
-  }
-
-  .content-box:active{
-    background-color: #333;
-  }
-
 
 /* Estilos para el encabezado */
 .header {

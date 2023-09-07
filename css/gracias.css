@@ -37,7 +37,7 @@ body{
   /*mis tickets link*/
   
   .custom-button {
-    background-color: green;
+    background-color: rgb(246, 252, 246);
     color: #060707; /* Color de texto azul (puedes cambiarlo según tus preferencias) */
     padding: 10px 20px;
     border: none;
@@ -49,8 +49,8 @@ body{
 }
 
 .custom-button:hover {
-    background-color: transparent;
-    color: #0056b3; /* Cambia el color de texto al pasar el ratón por encima (opcional) */
+    background-color: rgb(231, 230, 230);
+    color: #0c0c0c; /* Cambia el color de texto al pasar el ratón por encima (opcional) */
     transition: color 0.3s ease; /* Agrega una transición suave para el cambio de color (opcional) */
 }
 
