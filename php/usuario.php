@@ -82,7 +82,8 @@ $paginas=ceil($num_registros/$registros);
             </tr>
         <?php } ?>
   </table>
-  <center><button><a href="admin.php">atrás</a></button></center>
+  <br>
+  <center><button><a href="admin.php">Atrás</a></button></center>
   
   <br>
 </div>

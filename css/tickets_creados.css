@@ -6,11 +6,6 @@
   font-size: 1rem;
 }
 
-img{
-  width: 100%;
-}
-
-
 body, html {
   margin: 0;
   padding: 0;
@@ -20,12 +15,12 @@ body, html {
 
 
 body {
-  color: aliceblue;
   background-image: url('https://engranedigital.com/wp-content/uploads/2019/01/Engrane_digital_fondo.jpg');
   background-size: cover; /* La imagen de fondo cubrirá todo el cuerpo sin dejar espacios en blanco */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   background-attachment: fixed; /* Fija la imagen de fondo en su posición */
 }
+
 
   
   header {
@@ -46,7 +41,8 @@ body {
     display: block;
     margin: 0 auto;
     width: 90%;
-    max-width: 75rem;
+    max-width: 60rem;
+    height: 100vh;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.37);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -56,6 +52,9 @@ body {
     margin-top: 1.8rem;
   }
   
+  .content header h1 {
+    margin-top: -30px; /* Ajusta la cantidad de espacio superior según tus preferencias */
+}
   
   .usuario {
     position: absolute;
@@ -88,48 +87,49 @@ body {
     background-color: rgb(8, 8, 8);
   }
 
+/* Estilos para los formularios */
 
-  form{
-    transition: transform 0.3s;
-    transform-style: preserve-3d;
-    float: left;
-    margin-left: 4.6rem;
+form{
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+  float: left;
+  margin-left: 5.3rem;
 }
 
-  form:hover {
-  transform: translate3d(0, -10px, 0);
+form:hover {
+transform: translate3d(0, -10px, 0);
 }
 
-  form:active{
-    transition: transform 0.3s;
-    transform-style: preserve-3d;
+form:active{
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+}
+
+.content-box{
+  max-width: 5rem;
+  padding: .1rem;
+  border-radius: 10px;
+  background: rgba(36, 36, 36, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 17, 255, 0.37);
+  backdrop-filter: blur(2px);
+  
+}
+
+.content-box img{
+  width: 5rem;
+  height: 5rem;
+  border-radius: .6rem;
+}
+
+.content-box a{
+  text-decoration: none;
+  color: azure;
+}
+
+.content-box:active{
+  background-color: #333;
 }
   
-  .content-box{
-    max-width: 5rem;
-    padding: .7rem;
-    border-radius: 10px;
-    background: rgba(36, 36, 36, 0.15);
-    box-shadow: 0 8px 32px 0 rgba(0, 17, 255, 0.37);
-    backdrop-filter: blur(2px);
-    cursor: pointer;
-  }
-
-  .content-box img{
-    width: 5rem;
-    height: 5rem;
-    border-radius: .6rem;
-  }
-
-  .content-box a{
-    text-decoration: none;
-    color: azure;
-  }
-
-  .content-box:active{
-    background-color: #333;
-  }
-
 
 /* Estilos para el encabezado */
 .header {
@@ -291,7 +291,6 @@ display: block;
 #tickets-table {
   border-collapse: collapse;
   width: 100%;
-  cursor: pointer;
 }
 
 #tickets-table th, #tickets-table td {
@@ -313,175 +312,42 @@ display: block;
   background-color: #ffffff;
 }
 
-
-#content {
-    margin-top: 20px;
-    margin-left: 0px;
-  }
-  .content-box {
-      display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #ecf0f1;
-    float: left;
-    width: 10%;
-    margin-left: 2rem;
-  }
-  .content-box img {
-    width: 50px;
-    float: left;
-    margin-right: 10px;
-  }
-  .content-box p {
-    margin: 0;
-  }
-  
-  /* Estilos para la tabla de tickets */
-  #tickets-table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  #tickets-table th, #tickets-table td {
-    padding: 8px;
-    border: 1px solid #ccc;
-  }
-  #tickets-table th {
-    background-color: #507f9c;
-    color: #fff;
-  }
-  #tickets-table td {
-    background-color: #fff;
-  }
-  #tickets-table tr:nth-child(even) td {
-    background-color: #f2f2f2;
-  }
-  
-  .main{
-    margin: .5rem;
-    height: 7rem;
-    background-color: rgba(17, 0, 255, 0.253);
-    border: 2px solid rgba(136, 6, 168, 0.096);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-  
-  }
-  
-  .main div{
-    text-align: center;
-  }
-  
-  .main div h1{
-    font-size: 1rem;
-    font-family: 'Lato', sans-serif;
-  }
-  
-  .main p{
-    overflow: auto;
-    font-family: 'Lato', sans-serif;
-  }
-
-h5{
-    text-align: center;
-    font-size: 2rem;
-    margin-top: 1rem;
-
-}
-#usuarios {
-  border-collapse: collapse;
-  width: 100%;
-  cursor: pointer;
-}
-
-#usuarios th, #tickets-table td {
-  padding: 15px;
-}
-
-#usuarios th {
-  background-color: #5b509c;
-  color: #fff;
-
-}
-
-#usuarios td {
-  background-color: rgb(255, 255, 255)
-  
-}
-
-#usuarios tr:nth-child(even) td {
-  background-color: #ffffff;
-}
-
 .content table{
-  margin-top: 1rem;
+  margin-top: 10rem;
   color: #111111;
   border-radius: 10px;
   overflow: hidden;
   text-align: center;
 }
 
-a:link, a:visited { text-decoration: none; }
-
-/* Tabla admin */
-
-#tickets-table1 {
-  border-collapse: collapse;
-  width: 95%;
-  cursor: pointer;
-  color: #111111;
-  border-radius: 15px;
-  overflow: hidden;
-  text-align: center;
-
-}
-
-#tickets-table1 th, #tickets-table td {
-  padding: 15px;
-}
-
-#tickets-table1 th {
-  background-color: #5b509c;
-  color: #ffffff;
-
-}
-
-#tickets-table1 a {
-  
-  color: #000000;
-
-}
-
-#tickets-table1 td {
-  background-color: rgb(255, 255, 255)
-}
-
-#tickets-table1 tr:nth-child(even) td {
-  background-color: #ffffff;
-}
-
-#tickets-table1 tbody th{
-  background-color: rgb(255, 255, 255);
-  color:#111111;
-}
-
-/*Glass*/
-
-.content1 {
-  display: block;
-  margin: 0 auto;
-  width: 90%;
-  max-width: 100%;
-  max-height: 100%;
-
-  border-radius: 10px;
+input{
+  padding: 0;
   background: rgba(255, 255, 255, 0.37);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(2px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 2rem;
-  margin-top: 1.8rem;
+   border: 0;
+   cursor: pointer;
+   text-align: center;
+}
+input:hover{
+  background: rgba(255, 255, 255, 0.712);
+}
+
+img{
+  width: 100%;
+}
+
+.enviar{
+  background: rgba(25, 0, 255, 0.788);
+  padding: 5px;
+  border-radius: 4px;
+  color: white;
+}
+.enviar:hover{
+  background: rgba(25, 0, 255, 0.527);
+}
+table{
+  table-layout: fixed;
+  border-collapse: collapse;
+  overflow: hidden;
 }
 
 button {
@@ -544,8 +410,13 @@ button a:active {
          inset 0 0 .5em .25em var(--glow-color);
 }
 
- table{
-  table-layout: fixed;
-  border-collapse: collapse;
-  overflow: hidden;
+
+#tickets-table {
+    border: 2px solid black; /* Borde de la tabla */
+    margin: 0 auto; /* Centrar horizontalmente */
+    text-align: center; /* Centrar horizontalmente el contenido de la tabla */
+    display: table; /* Hacer que el contenedor se comporte como una tabla para centrar verticalmente */
+    vertical-align: middle; /* Centrar verticalmente */
+    /* Agrega otras propiedades de estilo según sea necesario */
 }
+

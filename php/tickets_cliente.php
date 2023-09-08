@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     <title>Técnico</title>
     <link rel="icon" href="../img/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/tecnico.css">
+    <link rel="stylesheet" href="../css/tickets_creados.css">
 </head>
 <body>
     <div class="header">
@@ -59,10 +59,12 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         </ul>
     </div>
 
+
+    
     <div class="content">
-        <header>
+    <header>
             <h1>TICKETS CREADOS</h1>
-        </header>
+        </header> 
         <div class="usuario">
             <a href="" id="atras"><img src="../img/usuarios.jpeg" alt="" for="atras"></a>
         </div>
@@ -108,6 +110,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
     ?>
 </table>
+<br><br><br><br><br><br><br>
 <div class="container-fluid  col-12">
         <ul class="pagination pg-dark justify-content-center pb-5 pt-5 mb-0" style="float: none;" >
             <li class="page-item">
