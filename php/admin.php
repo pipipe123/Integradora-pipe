@@ -158,6 +158,13 @@ table#tickets-table1 tbody tr {
 }
 
 
+#tickets-table1 th:nth-child(1) {
+    padding-right: 20px; /* Espacio en la parte derecha de la celda "Email" */
+}
+
+#tickets-table1 th:nth-child(2) {
+    padding-left: 70px; /* Espacio en la parte izquierda de la celda "Folio" */
+}
 
     </style>
 </head>
@@ -183,7 +190,7 @@ table#tickets-table1 tbody tr {
     </div>
 
     <div class="content1">
-<table align="center" id="tickets-table1">
+<table align="center" id="tickets-table1" cellspacing="10">
 <thead>
         <tr>
             <th colspan="1.5">Email</th>
@@ -329,11 +336,10 @@ table#tickets-table1 tbody tr {
 
 
 
-
-
 <!-- tambien paginacion -->
 <h4 align="center"> resultados ( <?php echo $num_registros?> )</h1>
 </div>
+<br>
 <div align="center">
 
 
