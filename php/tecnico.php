@@ -1,7 +1,7 @@
 <?php
 include_once('conexion.php');
-include_once('sesion_tecnico.php');
 include_once('valida_sesion.php');
+include_once('sesion_tecnico.php');
 
 
 if(!empty($_REQUEST["nume"])){ $_REQUEST["nume"] = $_REQUEST["nume"];}else{ $_REQUEST["nume"] = '1';}
@@ -41,9 +41,6 @@ $paginas=ceil($num_registros/$registros);
 
 
 
-print $busqueda."<br>";
-print $registros."<br>";
-print $num_registros."<br>";
 
 
 // aqui voy a meter el paginado
