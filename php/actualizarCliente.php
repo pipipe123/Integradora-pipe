@@ -52,12 +52,15 @@ include_once("conexion.php");
             <input type="password" placeholder="Nueva contraseña" id="pass" name="pass">
             <input type="submit" value="Actualizar">
         </form>
-        <a class="back-link" href="cliente.php">Atrás</a>
+        <br>
+      <center>
+      <a class="back-link" href="cliente.php">Atrás</a>
+      </center>  
     </div>
     <div class="image">
         <!-- Agrega aquí tu imagen -->
         <img src="../img/actua.png" height="300px" width="300px">
-        <center><button><a href="cliente.php">atras</a></button></center>
+       
     </div>
 </div>
 

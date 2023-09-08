@@ -13,6 +13,28 @@ body{
   background-size: cover;
 }
 
+.back-link {
+  display: inline; /* Cambia la visualización a "inline" en lugar de "inline-block" para quitar los estilos de enlace */
+  padding: 10px 20px;
+  background-color: #ccc; /* Fondo transparente */
+  color: black; /* Color de texto azul (puedes cambiarlo si lo deseas) */
+  text-decoration: none; /* Elimina cualquier subrayado u otros estilos de enlace */
+  border: none; /* Sin borde */
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.back-link:hover {
+  color: #0c0c0c; /* Cambia el color de texto al pasar el ratón por encima (opcional) */
+  background-color: rgb(172, 170, 170); /* Cambia el color de fondo al pasar el ratón por encima (opcional) */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Agrega una transición suave para el cambio de color (opcional) */
+}
+
+
+
+
 
         /* Estilos para el encabezado */
         .header {
@@ -202,30 +224,9 @@ body{
     background-color: #0056b3;
 }
 
-.content a {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 14px;
-    margin-top: 10px;
-}
 
-.content a:hover {
-    text-decoration: underline;
-}
 
-/*estilos al enlace "Atrás" */
-.back-link {
-    display: inline-block;
-    color: #007bff;
-    text-decoration: none;
-    font-size: 14px;
-    margin-top: 10px;
-    transition: color 0.3s ease-in-out;
-}
 
-.back-link:hover {
-    color: #0056b3;
-}
 
  /* Estilos para los títulos */
  .title {
