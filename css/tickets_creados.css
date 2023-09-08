@@ -410,7 +410,7 @@ button a:active {
          inset 0 0 .5em .25em var(--glow-color);
 }
 
-
+/* centrar tabla*/
 #tickets-table {
     border: 2px solid black; /* Borde de la tabla */
     margin: 0 auto; /* Centrar horizontalmente */
