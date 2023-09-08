@@ -19,6 +19,30 @@ include_once('sesion_admin.php');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+body {
+  color: aliceblue;
+  background-image: url('https://engranedigital.com/wp-content/uploads/2019/01/Engrane_digital_fondo.jpg');
+  background-size: cover; /* La imagen de fondo cubrirá todo el cuerpo sin dejar espacios en blanco */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-attachment: fixed; /* Fija la imagen de fondo en su posición */
+}
+
+table#tickets-table1 tbody tr {
+    min-height: 50px; /* Establece el alto mínimo deseado para las filas */
+}
+
+
+
+
         .container_card{
     margin: 0 auto;
     padding:  0px 20px 20px 20px;
@@ -107,6 +131,34 @@ include_once('sesion_admin.php');
         grid-row-gap: 60px;
     }
 }
+
+/*barra de paginacion*/
+.pagination.pg-dark {
+    background-color: transparent; /* Cambia el color de fondo a rojo */
+}
+
+.pagination.pg-dark .page-item .page-link {
+    color: black; /* Cambia el color del texto a azul */
+}
+
+.pagination.pg-dark .page-item.active .page-link {
+    background-color:rgb(231, 206, 255);  /* Cambia el color de fondo de la página activa a verde */
+}
+
+.pagination.pg-dark .page-item.active .page-link {
+    color: black; /* Cambia el color del texto de a página activa a amarillo */
+}
+
+.pagination.pg-dark .page-item:not(.active) .page-link {
+    background-color: rgb(100, 61, 136); /* Cambia el color de fondo de las páginas no activas a naranja */
+}
+
+.pagination.pg-dark .page-item:not(.active) .page-link {
+    color: white; /* Cambia el color del texto de las páginas no activas a amarillo claro */
+}
+
+
+
     </style>
 </head>
 <body>
@@ -287,7 +339,7 @@ include_once('sesion_admin.php');
 
 <button> <a href="usuario.php">USUARIOS</a></button>
 
-<button><center><a href="cierra_sesion.php">Cerrar sesion</a></center></button>
+<button><center><a href="cierra_sesion.php">CERRAR SESION</a></center></button>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 

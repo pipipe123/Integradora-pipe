@@ -5,14 +5,23 @@
     font-family: 'Roboto', sans-serif;
   font-size: 1rem;
 }
-ss
-body{
-    color: aliceblue;
-    background-image: url(https://engranedigital.com/wp-content/uploads/2019/01/Engrane_digital_fondo.jpg);
-    margin: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+body {
+  background-image: url('https://engranedigital.com/wp-content/uploads/2019/01/Engrane_digital_fondo.jpg');
+  background-size: cover; /* La imagen de fondo cubrirá todo el cuerpo sin dejar espacios en blanco */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-attachment: fixed; /* Fija la imagen de fondo en su posición */
+}
+
+
   
   header {
     width: auto;
@@ -43,6 +52,9 @@ body{
     margin-top: 1.8rem;
   }
   
+  .content header h1 {
+    margin-top: 10px; /* Ajusta la cantidad de espacio superior según tus preferencias */
+}
   
   .usuario {
     position: absolute;
@@ -81,7 +93,7 @@ form{
   transition: transform 0.3s;
   transform-style: preserve-3d;
   float: left;
-  margin-left: 4.6rem;
+  margin-left: 5.3rem;
 }
 
 form:hover {
@@ -95,7 +107,7 @@ form:active{
 
 .content-box{
   max-width: 5rem;
-  padding: .7rem;
+  padding: .1rem;
   border-radius: 10px;
   background: rgba(36, 36, 36, 0.15);
   box-shadow: 0 8px 32px 0 rgba(0, 17, 255, 0.37);
@@ -397,3 +409,4 @@ button a:active {
          0 0 2.5em 2em var(--glow-spread-color),
          inset 0 0 .5em .25em var(--glow-color);
 }
+

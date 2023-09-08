@@ -64,6 +64,28 @@ print $num_registros."<br>";
     <link rel="icon" href="../img/logo.png" type="image/png">
     <link rel="stylesheet" href="../css/tecnico.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+    /* Cambiar el color del texto de la página activa */
+    .custom-pagination .page-item.active .page-link {
+        color: black; 
+    }
+
+    /* Cambiar el fondo del botón de página activa */
+    .custom-pagination .page-item.active .page-link {
+        background-color: rgb(231, 206, 255); 
+    }
+
+    /* Cambiar el color del texto de los botones de página no activos */
+    .custom-pagination .page-item:not(.active) .page-link {
+        color: white; 
+    }
+
+    /* Cambiar el fondo de los botones de página no activos */
+    .custom-pagination .page-item:not(.active) .page-link {
+        background-color: rgb(100, 61, 136); 
+    }
+</style>
+
 </head>
 <body>
     <div class="header">
@@ -174,9 +196,9 @@ print $num_registros."<br>";
 
     ?>
 </table>
-<div class="container-fluid  col-12">
-        <ul class="pagination pg-dark justify-content-center pb-5 pt-5 mb-0" style="float: none;" >
-            <li class="page-item">
+<div class="container-fluid col-12">
+    <ul class="pagination pg-dark justify-content-center pb-5 pt-5 mb-0 custom-pagination" style="float: none;">
+    <li class="page-item">
             <?php
             if($_REQUEST["nume"] == "1" ){
             $_REQUEST["nume"] == "0";
@@ -198,8 +220,9 @@ print $num_registros."<br>";
             <li class='page-item'><a class='page-link' aria-label='Next' href='../php/tecnico.php?nume=". ceil($ultima) ."'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Siguiente</span></a>
             </li>";
             ?>
-        </ul>
-    </div>
+    </ul>
+</div>
+
   <center><button><a href="cierra_sesion.php">Cerrar sesion</a></button></center>
     </div>
 </body>

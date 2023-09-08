@@ -10,13 +10,9 @@ img{
   width: 100%;
 }
 
-body{
-    color: aliceblue;
-    background-image: url(https://engranedigital.com/wp-content/uploads/2019/01/Engrane_digital_fondo.jpg);
-    margin: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
+
+
   
   header {
     width: auto;
@@ -50,7 +46,7 @@ body{
   .usuario {
     position: absolute;
     display: block;
-    top: 0;
+    top: 100;
     width: 9rem;
     left: 0;
     line-height: 9rem;
