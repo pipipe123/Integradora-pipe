@@ -118,18 +118,18 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             }else{
             if ($pagina>1)
             $ant = $_REQUEST["nume"] - 1;
-            echo "<a class='page-link' aria-label='Previous' href='../php/admin.php?nume=1'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Anterior</span></a>"; 
-            echo "<li class='page-item '><a class='page-link' href='../php/admin.php?nume=". ($pagina-1) ."' >".$ant."</a></li>"; }
+            echo "<a class='page-link' aria-label='Previous' href='../php/tickets_cliente.php?nume=1'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Anterior</span></a>"; 
+            echo "<li class='page-item '><a class='page-link' href='../php/tickets_cliente.php?nume=". ($pagina-1) ."' >".$ant."</a></li>"; }
             echo "<li class='page-item active'><a class='page-link' >".$_REQUEST["nume"]."</a></li>"; 
             $sigui = $_REQUEST["nume"] + 1;
             $ultima = $num_registros / $registros;
             if ($ultima == $_REQUEST["nume"] +1 ){
             $ultima == "";}
             if ($pagina<$paginas && $paginas>1)
-            echo "<li class='page-item'><a class='page-link' href='../php/admin.php?nume=". ($pagina+1) ."'>".$sigui."</a></li>"; 
+            echo "<li class='page-item'><a class='page-link' href='../php/tickets_cliente.php?nume=". ($pagina+1) ."'>".$sigui."</a></li>"; 
             if ($pagina<$paginas && $paginas>1)
             echo "
-            <li class='page-item'><a class='page-link' aria-label='Next' href='../php/admin.php?nume=". ceil($ultima) ."'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Siguiente</span></a>
+            <li class='page-item'><a class='page-link' aria-label='Next' href='../php/tickets_cliente.php?nume=". ceil($ultima) ."'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Siguiente</span></a>
             </li>";
             ?>
         </ul>
