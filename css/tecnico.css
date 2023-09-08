@@ -74,7 +74,7 @@ body {
     left: 65rem;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.37);
-    box-shadow: 0 8px 32px 0 rgba(5, 1, 29, 0.644);
+    box-shadow: 0 8px 32px 0 rgba(18, 29, 1, 0.644);
     backdrop-filter: blur(2px);
     border: 2px solid rgba(255, 255, 255, 0.18);
   }
@@ -106,8 +106,7 @@ form:active{
 }
 
 .content-box{
-  max-width: 5rem;
-  padding: .1rem;
+  
   border-radius: 10px;
   background: rgba(36, 36, 36, 0.15);
   box-shadow: 0 8px 32px 0 rgba(0, 17, 255, 0.37);

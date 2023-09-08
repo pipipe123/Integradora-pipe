@@ -81,6 +81,62 @@ $paginas=ceil($num_registros/$registros);
     .custom-pagination .page-item:not(.active) .page-link {
         background-color: rgb(100, 61, 136); 
     }
+
+
+    .main-container {
+        margin-top: -70px; /* Ajusta este valor para mover el contenido hacia arriba */
+    }
+
+
+    .button-container {
+        margin-left: 80px; /* Ajusta el margen izquierdo negativo según tus necesidades */
+    }
+
+    .content-box {
+        max-width: 5rem;
+        padding: .3rem;
+        border-radius: 10px;
+        display: inline-block;
+        margin: 35px;
+        position: relative;
+        transition: transform 0.3s; /* Agrega una transición suave al movimiento */
+    }
+
+    .content-box:hover {
+        top: -5px;
+       
+    }
+
+    .content-box img {
+        width: 70px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .content-box input[type="submit"] {
+        background: none;
+        border: none;
+        text-align: center;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+
+    .content {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 60rem;
+    height: 150vh;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 1rem;
+    margin-top: 1.8rem;
+  }
+    
 </style>
 
 </head>
@@ -112,12 +168,14 @@ $paginas=ceil($num_registros/$registros);
         <div class="usuario">
             <a href="" id="atras"><img src="../img/usuarios.jpeg" alt="" for="atras"></a>
         </div>
+        <div class="main-container">
+        <div class="button-container">
         <form class="content-box" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <div>
                 <img src="../img/registrados.png" alt="Registrados">
                 <input type="text" value="registrados" style="display: none;" name="busqueda">
 
-                <input type="submit" value="Fecha" name="registrados" onlyread>
+                <input type="submit" value="Fecha" name="registrados" readonly>
             </div>
         </form>
         <form class="content-box" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -125,7 +183,7 @@ $paginas=ceil($num_registros/$registros);
                 <img src="../img/asignados.jpg" alt="Registrados">
                 <input type="text" value="nombre" style="display: none;" name="busqueda">
 
-                <input type="submit" value="Nombre" name="nombre" onlyread>
+                <input type="submit" value="Nombre" name="nombre" readonly>
             </div>
         </form>
         <form class="content-box" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -133,7 +191,7 @@ $paginas=ceil($num_registros/$registros);
                 <img src="../img/proceso.jpeg" alt="Registrados">
                 <input type="text" value="prioridad" style="display: none;" name="busqueda">
 
-                <input type="submit" value="Prioridad" name="proceso" onlyread>
+                <input type="submit" value="Prioridad" name="proceso" readonly>
             </div>
         </form>
         <form class="content-box" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -141,17 +199,17 @@ $paginas=ceil($num_registros/$registros);
                 <img src="../img/finalizados.jpg" alt="Registrados">
                 <input type="text" value="finalizados" style="display: none;" name="busqueda">
 
-                <input type="submit" value="Finalizados" name="finalizados" onlyread>
+                <input type="submit" value="Finalizados" name="finalizados" readonly>
             </div>
         </form>
         <form class="content-box" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <div>
                 <img src="../img/cancelados.png" alt="Registrados">
                 <input type="text" value="Cancelados" style="display: none;" name="busqueda">
-                <input type="submit" value="Cancelados" name="registrados">
+                <input type="submit" value="Cancelados" name="registrados" readonly>
             </div>
         </form>
-
+        </div>
           <table border="2px" id="tickets-table"> 
     <thead>
         <tr>
@@ -193,6 +251,8 @@ $paginas=ceil($num_registros/$registros);
 
     ?>
 </table>
+</div>
+<br><br><br><br>
 <div class="container-fluid col-12">
     <ul class="pagination pg-dark justify-content-center pb-5 pt-5 mb-0 custom-pagination" style="float: none;">
     <li class="page-item">
