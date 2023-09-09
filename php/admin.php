@@ -41,8 +41,6 @@ table#tickets-table1 tbody tr {
 }
 
 
-
-
         .container_card{
     margin: 0 auto;
     padding:  0px 20px 20px 20px;
@@ -166,7 +164,25 @@ table#tickets-table1 tbody tr {
     padding-left: 70px; /* Espacio en la parte izquierda de la celda "Folio" */
 }
 
+
+.content {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 75rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 2rem;
+    margin-top: 1.8rem;
+  }
+
     </style>
+
+
+
 </head>
 <body>
     <div class="header">
@@ -189,7 +205,7 @@ table#tickets-table1 tbody tr {
         </ul>
     </div>
 
-    <div class="content1">
+    <div class="content">
 <table align="center" id="tickets-table1" cellspacing="10">
 <thead>
         <tr>
