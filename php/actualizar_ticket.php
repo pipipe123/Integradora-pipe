@@ -1,8 +1,27 @@
 <?php
     include_once("valida_sesion.php");
     include_once("conexion.php");
+    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+    error_reporting(E_ERROR | E_PARSE);
+    ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+    <link rel="stylesheet" href="../css/cliente.css">
+    <link rel="icon" href="../img/logo.png" type="image/png">
+
+</head>
+
+
+<?php
     // include_once('sesiones_cliente.php');
-    $id=$_REQUEST['id'];
+    $_SESSION['id_ticket']=$_REQUEST['id'];
+    $id = $_SESSION['id_ticket'];
     $sql="select * from tickets where folio='$id'";
     // print $sql;
     $busqueda=mysqli_query($conexion,$sql);
@@ -13,8 +32,11 @@
     }
     if ($_SERVER["REQUEST_METHOD"]=="POST")
     {
+    //$id = $_SESSION['id_ticket'];
+        //echo(' ' .$_POST['id']);
         $proyecto = $_POST['proyecto'];
         $des = $_POST['des'];
+        $id = $_POST['id'];
         $img = addslashes(file_get_contents($_FILES['Imagen']['tmp_name']));
         
         // Se revisa que los datos enviados no sean códigos maliciosos
@@ -23,31 +45,23 @@
         $des = mysqli_real_escape_string($conexion, $des);
         
         // Insertar el ticket en la tabla
-        $query = "UPDATE tickets (descripcion, estado, proyecto, id_usuario) VALUES ('$des', 'activo', '$proyecto', $id_usuario)";
+        $query = "UPDATE tickets SET descripcion = '$des', proyecto = '$proyecto' where folio = $id";
         $resultado = mysqli_query($conexion, $query);
-        $folio=mysqli_insert_id($conexion);
+        $folio=$id;
         // Insertar la prueba en la tabla
-        $query_prueba = "UPDATE pruebas $img where folio_ticket = $id";
+        $query_prueba = "UPDATE pruebas set  imagen = '$img' where folio_ticket = $id";
         $res = mysqli_query($conexion, $query_prueba);
         
         // Verificar si las inserciones fueron exitosas
-            if ($resultado && $res) {
-                $enviado = "bien";
-            } else {
-                echo('No se pudo generar el ticket');
-            }
+        echo      "<script>
+        var accion = 'actualizado';
+        var tipo = 'ticket';
+        var lugar = 'tickets_cliente.php';
+    </script>";
+
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuario</title>
-    <link rel="stylesheet" href="../css/cliente.css">
-    <link rel="icon" href="../img/logo.png" type="image/png">
-</head>
+
 <body>
     <div class="header">
         <a href="https://engranedigital.com/">
@@ -84,11 +98,12 @@
     <input name="proyecto" id="proyecto" cols="100" rows="10" maxlength="500" placeholder="Ingrese el proyecto del problema" value=<?php echo $fila['proyecto'] ?>></input>
     <br>
     <h3>Descripcion</h3>
-    <textarea name="des" id="des" cols="100" rows="10" maxlength="500" placeholder="Describa su problema" value=<?php echo $fila['descripcion'] ?> ></textarea>
+    <textarea name="des" id="des" cols="100" rows="10" maxlength="500" placeholder="Describa su problema"  ><?php echo $fila['descripcion'] ?></textarea>
     <br>
     <label  for="imagen" class="adjuntar-imagen">Adjuntar imagen:</label>
     <input type="file" id="imagen" name="Imagen" class="input-imagen" require><br>
     <input type="button" id="enviar" value="Enviar comentario">
+    <input type="hidden" id="id" name="id" value="<?php echo $fila['folio'] ?>">
     <center><button><a href="tickets_cliente.php">atras</a></button></center>
 </form>
 </div>
@@ -128,3 +143,17 @@
 
 </body>
 </html>
+
+<?php
+      echo "
+
+      <script src='../js/alertas.js'></script>";
+      if ($resultado && $res){
+          echo " <script>   
+              generalsi(accion,tipo,lugar)
+              </script>";
+      }
+      
+
+
+?>
